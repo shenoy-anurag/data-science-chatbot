@@ -72,7 +72,7 @@ async def load_agent_on_start(
 
 
 bot_agent = load_agent_on_start(
-    model_path="/app/models/bot-v1.tar.gz",
+    model_path="/models/bot-v1.tar.gz",
     endpoints=_endpoints,
     remote_storage=None,
     app=app,
@@ -104,7 +104,7 @@ class Chat(Resource):
     async def post(self, request):
         user_text = request.json.get('chat')
         sender_id = request.json.get('id')
-        return await agent.handle_text(user_text, sender_id=sender_id)
+        return await app.agent.handle_text(user_text, sender_id=sender_id)
 
 
 api.add_resource(Chat, '/chat', endpoint='chat')

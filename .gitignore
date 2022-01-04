@@ -140,4 +140,4 @@ rasa_sdk/
 test.py
 convert_data.py
 
-app/env_var.sh
+env_var.sh
