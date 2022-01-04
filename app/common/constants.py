@@ -1,5 +1,5 @@
 # App and FileSystem:
-ROOT_FOLDER_PATH = '/app'
+ROOT_FOLDER_PATH = '/bot'
 
 # API:
 API_STATUS_SUCCESS = 'Success'
@@ -16,7 +16,7 @@ ENV_STAGING = 'staging'
 ENV_DEVELOPMENT = 'development'
 
 # Models:
-CORE_MODEL_BASE_PATH = '/app/models'
+MODEL_BASE_PATH = '/bot/models'
 
 # Other:
 COUNTRIES_AND_2ALPHA_CODES_DICT = {

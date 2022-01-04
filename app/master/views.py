@@ -72,7 +72,7 @@ async def load_agent_on_start(
 
 
 bot_agent = load_agent_on_start(
-    model_path="/models/bot-v1.tar.gz",
+    model_path="./models/bot-v1.tar.gz",
     endpoints=_endpoints,
     remote_storage=None,
     app=app,
