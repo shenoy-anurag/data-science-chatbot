@@ -134,8 +134,8 @@ dmypy.json
 
 .idea/
 
-rasa/
-rasa_sdk/
+#rasa/
+#rasa_sdk/
 
 test.py
 convert_data.py
