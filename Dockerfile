@@ -11,6 +11,7 @@ WORKDIR /bot
 
 RUN pip3 install --upgrade pip
 
+RUN pip3 install tensorflow-cpu==2.6.1
 #RUN pip3 install nltk==3.2.5
 #RUN python3 -m nltk.downloader punkt
 #RUN python3 -m nltk.downloader stopwords
