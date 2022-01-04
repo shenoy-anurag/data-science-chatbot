@@ -17,7 +17,7 @@ RUN pip3 install --upgrade pip
 #RUN python3 -m nltk.downloader perluniprops
 
 #ADD . /app/
-RUN pip3 install -r /requirements.txt
+RUN pip3 install -r requirements.txt
 
 EXPOSE 5000
 
