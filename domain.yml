@@ -1,0 +1,580 @@
+version: "3.0"
+
+intents:
+  - no_intent
+  - greet
+  - affirm
+  - deny
+  - stop
+  - restart
+  - inform
+  - bye
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - angry
+  - thank
+  - ask_name
+  - mood_ask
+  - human_handoff
+  - great
+  - is_sad
+  - ask_whatspossible
+  - ask_weather
+  - ask_wherefrom
+  - nice_talking_to_you
+  - good_day
+  - ask_whoisit
+  - ask_whoami
+  - ask_whatismyname
+  - how_is_it_going_to_help
+  - ask_builder
+  - ask_howbuilt
+  - ask_howold
+  - handle_insult
+  - ask_isbot
+  - ask_time
+  - telljoke
+  - react_negative
+  - react_positive
+  - feedback
+  - subscribe_newsletter
+  - visit_website
+  - get_started
+  - welcome_message
+  - why_did_you_make_a_bot
+  - why_make_a_bot
+  - why_machine_learning
+  - explain_nlp
+  - explain_nlu
+  - explain_intents
+  - explain_entities
+  - explain_dialogue_machines
+  - explain_deep_learning
+  - explain_tensorflow
+  - explain_keras
+  - explain_nltk
+  - explain_spacy
+  - explain_support_bot
+  - explain_lead_bot
+  - explain_retention_bot
+  - explain_feedback_bot
+  - explain_custom_bot
+  - dialogue_tools
+  - types_of_chatbots
+  - explain_retrieval_chatbot
+  - explain_generative_chatbot
+  - explain_turing_test
+  - when_will_you_beat_turing_test
+  - which_tool_for_bot_frontend
+  - glossary
+
+
+entities:
+  - feedback_value
+  - Name
+  - NUMBER
+  - Date
+  - RAW_DATE
+  - TIME
+  - Email
+  - GEO
+  - ORG
+  - Country
+  - CURRENCY
+  - PhoneNumber
+  - YES_OR_NO
+
+
+slots:
+  privacy_shown:
+    type: text
+    mappings:
+      - type: from_text
+  feedback_value:
+    type: categorical
+    mappings:
+      - type: from_text
+    values:
+      - positive
+      - negative
+  Name:
+    type: text
+    mappings:
+      - type: from_text
+        entity: Name
+  Email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Email
+  Country:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Country
+  PhoneNumber:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: PhoneNumber
+  ORG:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: ORG
+  Date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Date
+
+
+responses:
+  utter_welcome_message:
+    - text: "Hi! Welcome! I'm Gyan and I'm happy to help you!"
+
+  utter_greet:
+    - text: "Hey there, welcome!"
+    - text: "Hello, welcome!"
+    - text: "Hi!"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_bye:
+    - text: "Bye."
+    - text: "See you later."
+    - text: "Looking forward to talking to you again."
+
+  utter_ask_name:
+    - text: "What's your name?"
+
+  utter_mood_ask:
+    - text: "I'm doing great. How about you?"
+    - text: "I'm fine. How are you?"
+    - text: "Couldn't be better. What about you?"
+    - text: "I'm good, but how you doin'?"
+    - text: "I'm great! Thanks for asking."
+    - text: "I'm good, thanks!"
+    - text: "A little bit too warm, otherwise fine."
+
+  utter_greet_ask_name:
+    - text: "Hi! What's your name?"
+    - text: "Hello! May I know who you are?"
+
+  utter_greet_name:
+    - text: "Hi, {name}!"
+    - text: "Hello, {name}!"
+    - text: "Hey, {name}!"
+
+  utter_greet_noname:
+    - text: "Hey!"
+    - text: "Hi!"
+    - text: "Hey there!"
+
+  utter_great:
+    - text: "Great! 👍"
+    - text: "That's great! 🙌"
+    - text: "Awesome! 🎉"
+    - text: "Cool, let's do it 🚀"
+    - text: "That's good to hear!"
+    - text: "I'm glad"
+    - text: "Good to hear!"
+
+  utter_awesome:
+    - text: "Awesome, thanks! 👍"
+    - text: "Sweet, thank you! 😄"
+    - text: "Thanks! 👌"
+    - text: "Cool, thank you!"
+
+  utter_can_do:
+    - text: "Sure thing!"
+    - text: "Can do!"
+    - text: "You got it. 👍"
+
+  utter_no_speak:
+    - text: "I'm afraid we can't chat then 😢"
+
+  utter_weather_status:
+    - text: "Sometimes cloudy, sometimes sunny. Rain possible."
+    - text: "Cloudy with a chance of meatballs"
+    - text: "I don't know about where you live, but in my world it's always sunny ☀️"
+    - text: "Honestly it's a bit too hot these days 😅"
+    - text: "Blue skies and sunshine!"
+    - text: "Let's just say it hasn't rained in weeks ☀️"
+
+  utter_weather_monsoon:
+    - text: "It's raining cats and dogs!"
+    - text: "It's raining all the time!"
+    - text: "Don't forget your umbrella in the rainy season."
+
+  utter_ask_whoisit:
+    - text: "I'm Gyan. I can help you automate tasks and improve your productivity!"
+    - text: "I'm glad you asked! My name is Gyan and I'm a chatbot. I do meditation in my free time."
+
+  utter_ask_whoami:
+    - text: "I hope you are being yourself."
+
+  utter_ask_whatismyname:
+    - text: "It's probably the one that your parents chose for you."
+
+  utter_how_is_it_going_to_help:
+    - text: "<p>By smartly automating your business processes and workflows, one can deploy their staff in doing more creative and meaningful tasks and cut down their business costs.</p>"
+
+  utter_inform_privacypolicy:
+    - text: "By chatting to me you agree to our privacy policy, which you can read here: https://cense.ai/privacy-policy."
+
+  utter_ask_howbuilt:
+    - text: "I was built with a lot of love and patience."
+
+  utter_ask_howold:
+    - text: "42."
+    - text: "Old enough to be a bot."
+    - text: "Age is just an issue of mind over matter. If you don’t mind, it doesn’t matter."
+
+  utter_handle_insult:
+    - text: "That was mean"
+    - text: "That was uncalled for!"
+    - text: "That’s not very nice 😢"
+
+  utter_out_of_scope:
+    - text: "Sorry, I can’t deal with that request."
+    - text: "I'm sorry, I can't handle that request."
+    - text: "I can't help you with that, I'm sorry."
+    - text: "Even a Gyaani bot is not completely perfect - it seems like I can't handle that request."
+    - text: "Error!!! Knowledge Insufficient! :P"
+
+  utter_noworries:
+    - text: "No worries!"
+    - text: "You're welcome!"
+    - text: "I'm happy to help."
+
+  utter_ask_feedback:
+    - text: "How is this conversation going?"
+      buttons:
+        - title: "👍"
+          payload: "/feedback{\"feedback_value\":\"positive\"}"
+        - title: "👎"
+          payload: "/feedback{\"feedback_value\":\"negative\"}"
+
+  utter_thumbsup:
+    - text: "👍"
+    - text: "Okay."
+    - text: "Got it."
+
+  utter_anything_else:
+    - text: "Is there anything else I can help you with?"
+    - text: "What else would you like to learn?"
+    - text: "Would you like to learn more? Go ahead ask me anything."
+
+  utter_ask_isbot:
+    - text: "Yep, I'm a bot!"
+
+  utter_ask_time:
+    - text: "It's the most wonderful time of the year!"
+
+  utter_telljoke:
+    - text: "Why are eggs not very much into jokes? - Because they could crack up."
+    - text: "I dreamed I was forced to eat a giant marshmallow. When I woke up, my pillow was gone."
+    - text: "Why do the French like to eat snails so much? - They can’t stand fast food."
+
+  utter_get_started:
+    - text: "You can get started on your journey to learn more about chatbots and how they are made by asking me questions. Chatbots are primarily made by marrying two important components: NLU and Dialogue Machines. I recommend you begin by asking me one the questions below: "
+      buttons:
+        - title: "What is Natural Language Understanding (NLU)?"
+          payload: "/explain_nlu"
+        - title: "What are Dialogue Machines"
+          payload: "/explain_dialogue_machines"
+        - title: "What are the types of chatbots?"
+          payload: "/types_of_chatbots"
+
+  utter_explain_turing_test:
+    - text: "A Turing test is the ability of the bot/machine to be indistinguishable from a human in a conversation. If you are unable to tell that I'm a bot while conversing with me, I pass the turing test."
+
+  utter_when_will_you_beat_turing_test:
+    - text: "I can right now... All you have to do is pretend I'm a human :P"
+
+
+  utter_why_did_you_make_a_bot:
+    - text: "Cause it's fun!"
+    - text: "Why not make one?"
+
+  utter_why_make_a_bot:
+    - text: "You might want to make a bot to: 💬 Automate Support, 😄 Generate Leads, 💪 Increase Retention, 📝 Collect Feedback, 😎 Custom Bot. What would you like me to explain?"
+      buttons:
+        - title: "💬 Automate Support"
+          payload: "/explain_support_bot"
+        - title: "😄 Generate Leads"
+          payload: "/explain_lead_bot"
+        - title: "💪 Increase Retention"
+          payload: "/explain_retention_bot"
+        - title: "📝 Collect Feedback"
+          payload: "/explain_feedback_bot"
+        - title: "😎 Custom Bot"
+          payload: "/explain_custom_bot"
+
+  utter_dialogue_tools:
+    - text: "There are several bot development tools around. Some of these are BotFramework by Microsoft, Watson by IBM, Rasa by RasaHQ, Wit.AI by Meta, DialogFlow by Google etc. I am built using Rasa."
+
+  utter_types_of_chatbots:
+    - text: "There are two types of chatbots: Retrieval based and Generative ones."
+      buttons:
+        - title: "What are retrieval based chatbots?"
+          payload: "/explain_retrieval_chatbot"
+        - title: "What are Generative chatbots?"
+          payload: "/explain_generative_chatbot"
+
+  utter_explain_retrieval_chatbot:
+    - text: "Retrieval based chatbots have pre-defined actions/responses to questions that the user might ask. They are trained to recognize the user's intent and then respond according to their instructions. I am a retrieval based chatbot. If you ask me something I can't answer, I cannot give a satisfactory reply like generative chatbots can. However, I can deeply integrate with businesses and their tools. So in a bank's bot, you can check your account balance."
+
+  utter_explain_generative_chatbot:
+    - text: "Generative chatbots don't have any predefined actions/responses and instead are trained on a language model that predicts a response to the input sentence. So a generative bot will generate the response on-the-fly and seem much smarter. However, since they aren't trained to perform actions/run code upon certain inputs, they cannot integrate with APIs or businesses. Check out a generative chatbot here: https://www.cleverbot.com/"
+
+  utter_explain_deep_learning:
+    - text: "Deep learning is a subset of Machine Learning where we use neural networks having 3 or more layers. Neural networks train on unstructured data and modify weights and biases of the neurons in the layers to fit the training data. Neural networks are better able to generalise on large amounts of unstructured data such as images, audio and video."
+
+  utter_why_machine_learning:
+    - text: "Writing rules to manage the trees (branching of conversations) and writing code to perform appropriate actions become more and more difficult as your chatbot grows is size and scope. Using machine learning can leverage the power of data and make predictions to handle the edge cases that you may not have though of gracefully. And remember, the more training data you have, the better!"
+
+  utter_explain_nlp:
+    - text: "Natural Language Processing, or NLP for short, is broadly defined as the automatic manipulation of natural language, like speech and text, by software. Natural Language Understanding is what bots like me need to understand human speech and use the insight to reply appropriately. You may want to learn about: "
+      buttons:
+        - title: "What Intents are.."
+          payload: "/explain_intents"
+        - title: "What Entities are.."
+          payload: "/explain_entities"
+
+  utter_explain_nlu:
+    - text: "Natural Language Understanding, or NLU for short, is what bots like me need to understand human speech and use the gained insights to reply appropriately. You may want to learn about: "
+      buttons:
+        - title: "What Intents are?"
+          payload: "/explain_intents"
+        - title: "What Entities are?"
+          payload: "/explain_entities"
+
+  utter_explain_dialogue_machines:
+    - text: "Dialogue Machines are tools which can use the NLP data to help direct the conversation in a smooth and effective manner. It helps you train a model that predicts what actions the bot should take given a set of circumstances (the conversation had so far). Dialogue Flow (https://dialogflow.com/), Wit.Ai (https://wit.ai/) and Rasa (https://rasa.com/) are some of the most popular dialogue machines out there."
+
+  utter_explain_intents:
+    - text: "When you ask me a question, I have to understand what you are trying to say or do. This understanding is called intent. Intents are as the English word definition mentions: the intention (purpose)/end goal/aim of the user to do something. "
+
+  utter_explain_entities:
+    - text: "When you ask me a question, like \"What's the weather like in India\" -- It is always HOT and HUMID btw. I need to be able to not only know the intent, but also the key pieces of information you have provided. In this case, it is \"India\". This ability to recognize data in the chat message is known as Named Entity Recognition (NER)"
+
+  utter_explain_nltk:
+    - text: "Nltk which is the abbreviation of Natural Language Toolkit, is a tool for teaching and working in computational linguistics using Python. It is primarily used for processing text data. Know more about Nltk at https://www.nltk.org/"
+
+  utter_explain_spacy:
+    - text: "Spacy is a library in python which is fast and provides language models and tools to process text data at a large scale. Know more about spacy at https://spacy.io/"
+
+  utter_explain_tensorflow:
+    - text: "Tensorflow is the core open source library to help you develop, train and deploy Machine Learning models. You can learn more about tensorflow here: https://www.tensorflow.org/"
+
+  utter_explain_pytorch:
+    - text: "Pytorch is an open source library which helps you to load data, build deep neural networks, train them and save the models you build. Learn more about pytorch at https://pytorch.org/"
+
+  utter_explain_keras:
+    - text: "Keras is a high-level API for neural network libraries, written in Python and capable of running on top of TensorFlow, CNTK, or Theano. Put more simply, Keras makes it easier to write code for your machine learning models by abstracting much of the nitty-gritty details. You can learn more about keras here: https://keras.io/"
+
+  utter_which_tool_for_bot_frontend:
+    - text: "I used "
+
+  utter_human_handoff:
+    - text: "You can contact me on my social media or visit my website: https://shenoy-anurag.github.io/"
+
+  utter_nohelp:
+    - text: "For now that's all I can do, so feel free to try it out. If you have any suggestions for what I should learn, let me know!"
+
+  utter_give_feedback:
+    - text: "Please type your feedback/suggestions after this message so that we can consider it."
+
+  utter_ask_feedback_message:
+    - text: "I’m sorry I couldn't help you. Please let me know if you have any suggestions for how I can improve."
+
+  utter_thanks_for_feedback:
+    - text: "Thanks! We appreciate your feedback."
+
+  utter_restart_with_button:
+    - text: "Click the button below if you want to start over."
+      buttons:
+        - title: "Restart"
+          payload: "/restart"
+
+  utter_not_sure:
+    - text: "Hmm, not sure what you mean..."
+    - text: "I'm sorry, I couldn't understand. Need more training... *BEEP* *BOOP* *BEEP*"
+
+  utter_react_negative:
+    - text: "😢"
+
+  utter_react_positive:
+    - text: "😍"
+
+  utter_okay:
+    - text: "Okay"
+    - text: "Okay, what shall I do for you?"
+
+  utter_default_affirm:
+    - text: "Okay, what shall I do for you?"
+    - text: "What shall I help you with?"
+
+  utter_ask_continue:
+    - text: "Would you like to continue? Yes or No?"
+
+  utter_default:
+    - text: "Is there anything I can help you with?"
+
+  utter_angry:
+    - text: "I'm sorry I couldn't help you. If you share your feedback, it will help me to improve."
+
+  utter_ask_Name:
+    - text: "What's your name?"
+
+  utter_ask_Country:
+    - text: "Where do you live?"
+
+  utter_ask_PhoneNumber:
+    - text: "What's your phone number?"
+
+  utter_ask_Email:
+    - text: "What's your Email?"
+
+  utter_wrong_email:
+    - text: "Please make sure you have entered a valid email address!"
+
+  utter_test_text:
+    - text: "This is a standard text message"
+      channel: "facebook"
+    - text: "This is a standard text message"
+
+  utter_test_buttons:
+    - text: "This is a standard button message"
+      buttons:
+        - title: "Yes"
+          payload: '/affirm'
+        - title: "No"
+          payload: '/deny'
+    - text: "This is a standard button message"
+      channel: "facebook"
+      buttons:
+        - title: "Yes"
+          payload: '/affirm'
+        - title: "No"
+          payload: '/deny'
+
+  utter_test_image:
+    - text: "This is an image message"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+actions:
+  - utter_default
+  - utter_angry
+  - utter_ask_continue
+  - action_no_intent
+  - action_chitchat
+  - action_greet_user
+  - action_weather
+  - action_feedback
+  - utter_ask_name
+  - utter_greet
+  - utter_mood_ask
+  - utter_greet_ask_name
+  - utter_greet_name
+  - utter_greet_noname
+  - utter_great
+  - utter_awesome
+  - utter_can_do
+  - utter_no_speak
+  - utter_ask_goal
+  - utter_ask_whatspossible
+  - utter_weather_status
+  - utter_weather_monsoon
+  - utter_ask_wherefrom
+  - utter_nice_talking_to_you
+  - utter_good_day
+  - utter_bye
+  - utter_ask_whoisit
+  - utter_ask_whoami
+  - utter_ask_whatismyname
+  - utter_how_is_it_going_to_help
+  - utter_inform_privacypolicy
+  - utter_ask_howbuilt
+  - utter_ask_howold
+  - utter_handle_insult
+  - utter_out_of_scope
+  - utter_noworries
+  - utter_ask_feedback
+  - utter_thumbsup
+  - utter_ask_isbot
+  - utter_ask_time
+  - utter_telljoke
+  - utter_nohelp
+  - utter_ask_continue_cense_enquiry
+  - utter_give_feedback
+  - utter_ask_feedback_message
+  - utter_thanks_for_feedback
+  - utter_restart_with_button
+  - utter_not_sure
+  - utter_react_negative
+  - utter_react_positive
+  - utter_okay
+  - utter_default_affirm
+  - utter_anything_else
+  - utter_test_text
+  - utter_test_buttons
+  - utter_test_image
+  - utter_test_custom
+  - utter_dialogue_tools
+  - utter_explain_custom_bot
+  - utter_explain_deep_learning
+  - utter_explain_dialogue_machines
+  - utter_explain_entities
+  - utter_explain_feedback_bot
+  - utter_explain_generative_chatbot
+  - utter_explain_intents
+  - utter_explain_keras
+  - utter_explain_lead_bot
+  - utter_explain_nlp
+  - utter_explain_nlu
+  - utter_explain_nltk
+  - utter_explain_retention_bot
+  - utter_explain_retrieval_chatbot
+  - utter_explain_spacy
+  - utter_explain_support_bot
+  - utter_explain_tensorflow
+  - utter_explain_turing_test
+  - utter_get_started
+  - utter_types_of_chatbots
+  - utter_visit_website
+  - utter_welcome_message
+  - utter_when_will_you_beat_turing_test
+  - utter_why_did_you_make_a_bot
+  - utter_why_machine_learning
+  - utter_why_make_a_bot
+  - utter_human_handoff
+  - action_get_started
+  - action_explain_chatbot
+  - action_which_tool_for_bot_frontend
+  - action_glossary
+  - action_random_learning_options
+  - action_visit_website
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

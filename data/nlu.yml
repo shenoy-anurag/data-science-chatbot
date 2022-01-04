@@ -1,0 +1,1943 @@
+version: "3.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - Hellllooooooo
+      - howdy
+      - hey bot
+      - heya
+      - Hallo
+      - hello?
+      - ayyyy whaddup
+      - heyo
+      - helloooo
+      - hellooo
+      - hello sweatheart
+      - hiihihi
+      - hey there
+      - yoo
+      - hello sweet boy
+      - whats up
+      - Hei
+      - hello
+      - I said, helllllloooooO!!!!
+      - good evening
+      - hi there it's me
+      - hi friend
+      - jop
+      - hi
+      - hi there
+      - what up
+      - hii
+      - hello it is me again
+      - jojojo
+      - hey let's talk
+      - hey, let's talk
+      - heyho
+      - hiii
+      - Whats up my bot
+      - Heya
+      - hey dude
+      - Well hello there
+      - hello friend
+      - Hey
+      - greetings
+      - hello everybody
+      - hello is anybody there
+      - good afternoon
+      - hello robot
+      - hallo
+      - hi?
+      - hola
+      - yo
+      - heeey
+      - hi hi
+      - hey
+      - hey hey
+      - hello there
+      - hi
+      - hi there
+      - hey bot!
+      - hi pal!
+      - hi folks
+      - Hey man
+      - Hi
+      - Yo!
+      - Howdy
+      - Yo!
+      - Howdy
+      - Hiya
+      - Hello!
+      - Hola!
+      - Hi
+      - Hey
+      - Hi bot
+      - Hey bot
+      - Hello
+      - hi again
+      - hi Mister
+      - good morning
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+
+  - intent: good_day
+    examples: |
+      - have a nice day
+      - good day to you
+      - have a good one!
+      - G'day mate!
+      - it is a good evening
+      - it is a good day today
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+      - Hi there, are you the bot?
+      - Are you a chat bot?
+      - Ar you a bot ?
+      - are you robot
+      - are you real
+      - cuz you are a bot
+      - So I'm here Today to ask one very simple question, what are you ?
+      - are you real lol
+      - are you bot?
+      - oh are you chatbot?
+      - are you sure that you're a bot?
+      - are you a BOT
+      - Are you the bot?
+      - What are you ?
+      - you're a bot
+      - are you artificial intelligence
+      - are you bot
+      - are you a bot ?
+      - are you a bot?
+      - are you a real bot?
+      - are you a bot
+      - are you really a bot
+      - are you a robot
+      - what are you, a bot?
+      - are you a robot
+      - are you a Skynet ?
+      - tell me, are you a bot?
+      - you are ai
+      - you are a robot
+      - i guess you are a chatbot
+      - you are chatbot
+      - are you ai
+      - are you a chatbot
+      - are you artificial
+
+  - intent: affirm
+    examples: |
+      - yes
+      - oh cool
+      - yes
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+      - fine
+      - confirm
+      - amayzing
+      - yep if i have to
+      - jo
+      - yes please!
+      - yes please
+      - oki doki
+      - ok, I behave now
+      - i will!
+      - alright
+      - ok cool
+      - I changed my mind. I want to accept it
+      - ok i accept
+      - i accept
+      - great
+      - I accept
+      - yes accept please
+      - nice
+      - yes i accept
+      - Sweet
+      - amazing!
+      - how nice!
+      - cool!
+      - sure!
+      - ja
+      - hm, i'd like that
+      - Sure
+      - Oh, ok
+      - absolutely
+      - sure thing
+      - perfect
+      - yup
+      - yas
+      - definitely yes without a doubt
+      - coolio
+      - yay
+      - accept
+      - yop
+      - agreed
+      - Yes
+      - oh awesome!
+      - I'm sure I will!
+      - yep, will do thank you
+      - yep
+      - go for it
+      - cool
+      - ok
+      - yeah
+      - sure
+      - yes
+      - Yes I would like to
+      - yes please
+      - of course
+      - Yes
+      - of course
+      - affirmative
+      - absolutely
+      - Yes
+      - absolutely
+      - yes please
+      - agreed
+      - yes
+      - of course
+      - affirmative
+      - Yes I would like to
+
+  - intent: bye
+    examples: |
+      - then bye
+      - ttyl
+      - talk to you later
+      - good-bye
+      - goodbye
+      - bye!
+      - tschüssikowski
+      - Bye bye
+      - bye udo
+      - talk to you later
+      - See you!
+      - bye.
+      - See you later.
+      - bye-bye
+      - goodbye
+      - goodnight
+      - good bye
+      - good night
+      - see ya
+      - see you
+      - toodle-oo
+      - bye bye
+      - gotta go
+      - farewell
+      - ciao
+      - catch you later
+      - bye
+      - bye bye bot
+      - bye bot
+      - 'k byyye #slay'
+      - tlak to you later
+      - bye was nice talking to you
+      - bye for now
+
+  - intent: deny
+    examples: |
+      - no i don't accept
+      - NEIN
+      - i'm not sure
+      - no i can't
+      - no you did it wrong
+      - no!!!!
+      - of course not
+      - I don't want to give it to you
+      - no I haven't decided yet if I want to sign up
+      - I'm not giving you my email address
+      - nevermind
+      - nein
+      - never mind
+      - i decline
+      - I'm not going to give it to you
+      - not really
+      - of course not
+      - i don't want to
+      - no
+      - deny
+      - absolutely not
+      - never
+      - no thanks
+      - no thank you
+      - i guess it means - no
+      - no
+      - never
+      - no thanks
+      - no thank you
+      - neither of these
+      - nah thanks
+      - i don't want either of those
+      - absolutely not
+      - decline
+      - no
+      - no go
+      - no thanks
+      - never
+      - absolutely not
+      - i don't think so
+      - i'm afraid not
+      - no sir
+      - definitely not
+      - no way
+      - no sorry
+      - No, not really.
+      - nah not for me
+      - nah
+      - no and no again
+      - no ma'am
+
+  - intent: ask_builder
+    examples: |
+      - i want to know who invented you
+      - Who thought to make you?
+      - who created you?
+      - can you share your boss with me?
+      - i want to get to know your owner
+      - i want to know the company which designed you
+      - i want to know the company which generated you
+      - i want to know the company which invented you
+      - May I ask who invented you?
+      - Who produced you?
+      - please tell me who created you
+      - Who created you?
+      - Who is your creator?
+      - Who designed you?
+      - who do you work for?
+      - Who fabricated you?
+      - who had the idea to build you?
+      - who had the idea to generate you?
+      - who had the idea to make you?
+      - who is behind all this?
+      - Who is the legal owner of you?
+      - who is your boss tell me
+      - who is your boss?
+      - Who modeled you?
+      - Who made you?
+      - Who is your programmer?
+      - who is your creator?
+      - please tell me the company who created you
+      - Who built you?
+      - Who's your builder?
+      - Who generated you?
+      - which company invented you?
+      - tell me more about your creators
+      - Who's your boss?
+      - how were you made?
+      - why were you made?
+      - where were you made?
+      - who made you?
+      - who build yoi
+      - Who owns you?
+      - tell me more about your founders
+      - who built you?
+      - and who built u?
+      - Who went through the trouble of setting you up?
+      - which company brought you into existence?
+      - which company created you?
+
+  - intent: ask_howold
+    examples: |
+      - how old are you?
+      - how old is the bot?
+      - how long has it been since you were created?
+      - what is your age?
+
+  - intent: ask_time
+    examples: |
+      - Hi, I need the time.
+      - Time?
+      - What's the time?
+      - Do you know what time it is?
+      - What's the current time?
+      - What time is it right now?
+      - Do you have the time?
+      - Can you tell me what time it is?
+      - I need to know what time it is.
+      - Pardon me, but do you know the time?
+      - What is the time?
+      - What's the time right now?
+      - What is the current time?
+      - Can you tell me the time?
+      - What might the time be?
+      - What is the hour and minute right now?
+      - What time have we got?
+      - What time is it right now?
+      - Tell me the time.
+      - Time, please!
+      - Would you tell me what time it is?
+      - Do you know the time?
+      - what is the time in Sydney?
+      - whats the time now
+      - what is the time ?
+      - what is time in US ?
+      - what is time is US ?
+      - what is time is USA ?
+      - what is time in India ?
+      - what is time is IN ?
+      - what is time is India ?
+      - what time it is
+      - What is the time?
+      - what is the current time?
+      - Time?
+      - Do you know the time?
+      - Can you tell the time?
+      - Give me the time.
+      - Tell me the time.
+      - Could you tell me what time is it?
+      - Excuse me, what time is it?
+      - Do you know what time it is?
+      - Could you tell me the time?
+      - Could you tell me the time, please?
+      - What is the time?
+      - Can you give me the time?
+
+  - intent: ask_weather
+    examples: |
+      - Nice day out today?
+      - What is the temperature today?
+      - Can we expect any thunderstorms?
+      - Will the skies be clear today?
+      - Are there any meteorological changes that I need to be aware of?
+      - Looks like a beautiful day hey?
+      - Will we build a snowman today?
+      - Is it humid out there today?
+      - What is the weather for tomorrow?
+      - Are we in for a scorcher?
+      - Will I require my raincoat today?
+      - Is it raining?
+      - What's the weather forecast?
+      - Beautiful day, isn't it?
+      - Is it hot or cold?
+      - What's it like out there?
+      - Do you have good weather?
+      - What is the weather at your place?
+      - How is the weather?
+      - What's the weather like?
+      - How is the weather today?
+      - whats the weather like tomorrow
+      - Is it quite breezy outside?
+      - hows the weather in bot world
+      - how's the weather in berlin
+      - what's the weather today?
+      - How’s the weather?
+      - what is the weather today?
+      - How’s the weather?
+      - how is the weather in berlin?
+      - how is the weather?
+      - Is it cloudy?
+      - what is the weather like today?
+      - what"s the weather
+      - is the sun out where zou are?
+      - is it sunny
+      - is the sun out where you are?
+      - what's the weather like where you are?
+      - how's the weather?
+      - whats the weather in berlin?
+
+  - intent: ask_whatismyname
+    examples: |
+      - Say my name.
+      - What was I named?
+      - Do I have a name?
+      - can you tell me my name?
+      - what's my name?
+      - Do I have a name? What is it?
+      - What is my name?
+      - May i know my name?
+      - What do I call myself?
+      - Tell me my name.
+      - Explain my name to me.
+      - What could be my name?
+      - What name do I go by?
+      - What name should I recognize for myself?
+      - Do you know my name?
+      - what is my name?
+      - What do people call me?
+      - What is my name?
+      - What else do people call me?
+      - Can you tell me my name?
+      - What exactly is my name?
+      - What do people call me?
+      - What is my first name?
+      - Do you know what my name is?
+      - What would be the name on my tombstone?
+      - What do my colleagues call me?
+      - What did my parents name me?
+      - What am I called?
+      - What is my full name?
+      - What is the name I was given?
+      - I'd like to know what my name is
+      - Can you tell me what I am called?
+      - Please let me know what my name is
+      - Inform me what my name is
+      - I'd like to know my name
+      - Tell me my name
+      - What does everyone call me?
+      - I have a name, what is it?
+
+  - intent: ask_whatspossible
+    examples: |
+      - what can i do here
+      - what can i do now
+      - um what now
+      - so now what
+      - help?
+      - now what?
+      - Great, is there anything else you can do, bot?
+      - can you do anything else?
+      - how can you help me?
+      - i asked you if you can do anything else
+      - anything els
+      - so what next?
+      - hm that doesnt quite help me is there anything else you can do?
+      - what else can I do here?
+      - what can you do?
+      - are there any other options?
+      - so what can you help me with?
+      - help please
+      - come back
+      - talk to me!
+      - help me
+      - cool! can I do something else here?
+      - what is this bot for
+      - what can I do with this bot
+      - what can I do here
+      - what are you good at?
+      - Can you explain me in one sentence what you are doing?
+      - so what can you do
+      - show me what's possible
+      - show me the menu
+      - options
+      - I need some help
+      - i don't know what i want
+      - help
+      - what are the options?
+      - what else can i do
+      - tell me more
+
+  - intent: ask_whoisit
+    examples: |
+      - who are you
+      - hi! what's your name?
+      - who is this?
+      - yes but who are you in your heart
+      - who are y
+      - I want to know who you are
+      - who are u?
+      - who speaks?
+      - who are you?
+      - Who are you?
+      - What is your name?
+      - I want to know about you.
+      - I would like to know more about you.
+      - I mean who are you?
+      - who is it?
+      - who is this
+      - who am i talking to
+      - what's your name
+      - Who are you?
+      - who r u
+      - what's your name bot
+      - whats ur name
+      - what are you called?
+      - who is talking?
+      - who talks?
+      - who are you and what do you want from me
+      - who am i speaking with
+
+  - intent: dialogue_tools
+    examples: |
+      - What are the different kinds of tools that can be used for dialogue management?
+      - What are the tools for dialogue management?
+      - I want to learn about dialogue management tools.
+      - I want to know more about dialogue management tools.
+
+  - intent: explain_custom_bot
+    examples: |
+      - What’s a custom bot?
+      - I want to learn about custom bots
+      - I want to know more about custom bots
+
+  - intent: explain_deep_learning
+    examples: |
+      - What is deep learning?
+      - Why use deep learning?
+      - I want to learn about deep learning
+      - I want to know more about deep learning
+
+  - intent: explain_dialogue_machines
+    examples: |
+      - What are dialogue machines?
+      - What are conversation flow machines or tools?
+      - I want to learn about dialogue management.
+      - I want to know more about dialogue management.
+
+  - intent: explain_entities
+    examples: |
+      - What are entities?
+      - What is an entity?
+      - I want to learn about entities
+      - I want to know more about entities
+
+  - intent: explain_feedback_bot
+    examples: |
+      - What are feedback bots?
+      - What is a feedback bot?
+      - I want to learn about feedback bots
+      - I want to know more about feedback bots
+
+  - intent: explain_generative_chatbot
+    examples: |
+      - What are generative chatbots?
+      - What are generative bots?
+      - I want to learn about generative chatbots
+      - I want to know more about generative chatbots
+
+  - intent: explain_intents
+    examples: |
+      - What are intents?
+      - What is a intent?
+      - I want to learn about intents
+      - I want to know more about intents
+
+  - intent: explain_keras
+    examples: |
+      - what’s keras?
+      - what is keras and how do I use it?
+      - I want to learn about keras
+      - I want to know more about keras
+
+  - intent: explain_lead_bot
+    examples: |
+      - what is a lead bot?
+      - what is a lead bot and what is it used for?
+      - I want to learn about lead bots
+      - I want to know more about lead bots
+
+  - intent: explain_nlp
+    examples: |
+      - what is nlp?
+      - what is natural language processing
+      - I want to learn about nlp
+      - I want to learn about natural language processing
+      - I want to know more about nlp
+      - I want to know more about natural language processing
+
+  - intent: explain_nltk
+    examples: |
+      - what is nltk?
+      - what is nltk and why is it used?
+      - I want to learn about nltk
+      - I want to know more about nltk
+
+  - intent: explain_nlu
+    examples: |
+      - what is nlu?
+      - what is natural language understanding?
+      - I want to learn about nlu
+      - I want to learn about natural language understanding?
+      - I want to know more about nlu
+      - I wat to know more about natural language understanding?
+
+  - intent: explain_retention_bot
+    examples: |
+      - what are retention bots?
+      - why use a retention bot?
+      - I want to learn about retention bots
+      - I want to know more about retention bots
+
+  - intent: explain_retrieval_chatbot
+    examples: |
+      - what are retrieval based chatbots?
+      - what are retrieval bots?
+      - I want to learn about retrieval bots
+      - I want to know more about retrieval bots
+
+  - intent: explain_spacy
+    examples: |
+      - what’s spacy?
+      - what is spacy
+      - I want to learn about spacy
+      - I want to know more about spacy
+
+  - intent: explain_support_bot
+    examples: |
+      - what is a support bot?
+      - why use or make a support bot?
+      - I want to learn about support bots
+      - I want to know more about support bots
+
+  - intent: explain_tensorflow
+    examples: |
+      - what’s tensorflow?
+      - what is tensorflow?
+      - I want to learn about tensorflow
+      - I want to know more about tensorflow
+
+  - intent: explain_turing_test
+    examples: |
+      - what is the turing test?
+      - what’s turing’s test?
+      - I want to learn about the turing test
+      - I want to know more about the turing test
+
+  - intent: feedback
+    examples: |
+      - feedback
+      - you should take my feedback
+      - you should improve this
+      - you should improve everything
+      - I think that intent can be improved
+      - i can give feedback if you like.
+      - i want to give some feedback that can help you. shall i email it to you?
+      - if you like i can give you feedback
+      - in my opinion you should improve
+      - i give you suggestion
+      - i suggest you listen
+      - i want to give some feedback that can help you.
+      - in my opinion you should better the models
+      - if you want i can give suggestion
+      - if you want i can give feedback
+      - give feedback
+      - i give you feedback
+      - if you like i can give you suggestion
+      - give suggestion
+      - i want to give some feedback
+      - I suggest that you focus on improving the bot
+      - I suggest that you focus on improving intent classification
+      - I would like to suggest some feedback
+      - I suggest that you improve the bot
+      - I suggest that you improve the ability of the bot to chitchat
+      - I would like to suggest an improvement
+
+  - intent: get_started
+    examples: |
+      - what should I do first?
+      - how should I create a chatbot?
+      - how do I create you?
+      - how to begin?
+      - how to start?
+      - how do i start?
+      - how do I start setting up this?
+      - how to setup the chatbot?
+      - tell me how to start this?
+      - tell me how to setup the chatbot?
+      - how do I start configuring the chatbot?
+      - how do I configure the chatbot?
+      - how do I configure this?
+      - how do I use chatbot
+      - how to start with chatbot
+      - how to start with it
+      - how to build a bot?
+      - how can I build a chatbot
+      - where to start the development of chatbot
+      - can you guide me know to create knowledge base chatbot
+      - I want to learn about chatbot building
+      - i want to learn about chatbot configuration
+      - how to get started with chatbot
+      - give me some information on chatbot
+      - tell me how to get started with chatbot
+      - tell me about chatbot please
+      - what is this chatbot thing?
+
+  - intent: good_day
+    examples: |
+      - have a nice day
+      - good day to you
+      - have a good one!
+      - 'G’day mate! '
+      - it is a good evening
+      - it is a good day today
+
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - Hellllooooooo
+      - howdy
+      - hey bot
+      - heya
+      - Hallo
+      - hello?
+      - ayyyy whaddup
+      - heyo
+      - helloooo
+      - hellooo
+      - hello sweatheart
+      - hiihihi
+      - hey there
+      - yoo
+      - hello sweet boy
+      - whats up
+      - Hei
+      - hello
+      - I said, helllllloooooO!!!!
+      - good evening
+      - hi there it's me
+      - hi friend
+      - jop
+      - hi
+      - hi there
+      - what up
+      - hii
+      - hello it is me again
+      - jojojo
+      - hey let's talk
+      - hey, let's talk
+      - heyho
+      - hiii
+      - Whats up my bot
+      - Heya
+      - hey dude
+      - 'Well hello there '
+      - hello friend
+      - 'Hey '
+      - greetings
+      - hello everybody
+      - hello is anybody there
+      - good afternoon
+      - hello robot
+      - hallo
+      - hi?
+      - hola
+      - yo
+      - heeey
+      - hi hi
+      - hey
+      - hey hey
+      - hello there
+      - hi
+      - hi there
+      - hey bot!
+      - hi pal!
+      - hi folks
+      - Hey man
+      - Hi
+      - Yo!
+      - Howdy
+      - Yo!
+      - Howdy
+      - Hiya
+      - Hello!
+      - Hola!
+      - Hi
+      - Hey
+      - Hi bot
+      - Hey bot
+      - Hello
+      - hi again
+      - hi Mister
+      - good morning
+      - hi im juzaan
+      - hi im sachin
+      - Hi I’m Juzaan
+      - Hi I'm Francesca
+      - Hi I'm Hamilton
+      - Hi I'm Martin
+      - Hi I'm Ashely
+      - Hi I'm Theodore
+      - Hi I'm Darrel
+      - Hi I'm Colt
+      - Hi I'm Brent
+      - Hi I'm Jesse
+      - Hi I'm Deacon
+      - Hi I'm Reed
+      - Hi I'm Marvin
+      - Hi I'm Gail
+      - Hi I'm Ingrid
+      - Hi I'm Tanya
+      - Hi I'm Judah
+      - Hi I'm Hope
+      - Hi I'm Katell
+      - Hi I'm Travis
+      - Hi I'm Beverly
+      - Hi I'm Hall
+      - Hi I'm Sade
+      - Hi I'm Drew
+      - Hi I'm Zachary
+      - Hi I'm Thor
+      - Hi I'm Ivy
+      - Hi I'm Evelyn
+      - Hi I'm Jade
+      - Hi I'm Xyla
+      - Hi I'm Nissim
+      - Hi I'm Kyra
+      - Hi I'm Darius
+      - Hi I'm Nina
+      - Hi I'm Fuller
+      - Hi I'm Uriel
+      - Hi I'm Allen
+      - Hi I'm Diana
+      - Hi I'm Jacob
+      - Hi I'm Sybil
+      - Hi I'm Patience
+      - Hi I'm Tanisha
+      - Hi I'm Benjamin
+      - Hi I'm Jackson
+      - Hi I'm Bertha
+      - Hi I'm Lana
+      - Hi I'm Jacob
+      - Hi I'm Conan
+      - Hi I'm Montana
+      - Hi I'm Cedric
+      - Hi I'm David
+      - Hi I'm Erica
+      - Hi I'm Yoko
+      - Hi I'm Camden
+      - Hi I'm Rana
+      - Hi I'm Risa
+      - Hi I'm Jack
+      - Hi I'm Hamilton
+      - Hi I'm Lana
+      - Hi I'm Paul
+      - Hi I'm Burton
+      - Hi I'm Xyla
+      - Hi I'm Beck
+      - Hi I'm Kennedy
+      - Hi I'm Jin
+      - Hi I'm Griffin
+      - Hi I'm Iris
+      - Hi I'm Wallace
+      - Hi I'm Adam
+      - Hi I'm Myra
+      - Hi I'm Mary
+      - Hi I'm Jack
+      - Hi I'm James
+      - Hi I'm Porter
+      - Hi I'm Fuller
+      - Hi I'm Jackson
+      - Hi I'm Brittany
+      - Hi I'm Maxwell
+      - This is Oliver
+      - This is Hoyt
+      - This is Conan
+      - This is Timothy
+      - This is Rana
+      - This is Simon
+      - This is Zephania
+      - This is Griffin
+      - This is Leah
+      - This is James
+      - This is Aline
+      - This is Blaze
+      - This is Ali
+      - This is Bree
+      - This is Uriah
+      - This is Irene
+      - This is Mary
+      - This is India
+      - This is Dennis
+      - This is Iris
+      - This is Kimberley
+      - This is Josiah
+      - This is Beck
+      - This is Jackson
+      - This is Shellie
+      - This is Ashely
+      - This is Nina
+      - This is Risa
+      - This is Randall
+      - This is Lana
+      - This is Sybil
+      - This is Dominique
+      - This is Serina
+      - This is Maxwell
+      - This is Martin
+      - This is Porter
+      - This is Ivy
+      - This is Camden
+      - This is Drew
+      - This is Diana
+      - This is Sonya
+      - This is Jasmine
+      - This is David
+      - This is Kiara
+      - This is Adena
+      - This is Burton
+      - This is Melanie
+      - This is Ivy
+      - This is Patience
+      - This is Kyra
+      - This is Hilda
+      - This is Jesse
+      - This is Adam
+      - This is Cherokee
+      - This is Iona
+      - This is Murphy
+      - This is Xyla
+      - This is Coby
+      - This is Anika
+      - This is Noah
+      - This is Kirby
+      - This is Chadwick
+      - This is Maryam
+      - This is Valentine
+      - This is Cameron
+      - This is Darrel
+      - This is Philip
+      - This is Montana
+      - This is Whilemina
+      - This is Tasha
+      - This is Hilel
+      - This is Thor
+      - This is Imogene
+      - This is Tiger
+      - This is Xyla
+      - This is Selma
+      - This is Levi
+      - This is Yoko
+      - This is September
+      - This is Aline
+      - This is Micah
+      - This is Delilah
+      - This is Xandra
+      - This is Cameron
+      - This is Allen
+      - This is Thor
+      - This is Wayne
+      - This is Judah
+      - This is Jacob
+      - This is Marcia
+      - This is Lionel
+      - Tate here
+      - Quinn here
+      - Hamilton here
+      - McKenzie here
+      - Hilel here
+      - Beverly here
+      - Anastasia here
+      - Colt here
+      - Whilemina here
+      - Brent here
+      - Leah here
+      - Phelan here
+      - Kennedy here
+      - Porter here
+      - Serina here
+      - Alice here
+      - Troy here
+      - Evelyn here
+      - Mary here
+      - Julie here
+      - Melanie here
+      - Melissa here
+      - Sybil here
+      - Ashton here
+      - Paul here
+      - Myra here
+      - Darius here
+      - Iris here
+      - Galvin here
+      - Jack here
+      - Hammett here
+      - Thaddeus here
+      - Wing here
+      - Hilda here
+      - Tasha here
+      - Mannix here
+      - Nolan here
+      - Tiger here
+      - Shafira here
+      - Cameron here
+      - Irene here
+      - Griffin here
+      - Natalie here
+      - Montana here
+      - hello my name is Reed
+      - hello my name is Imogene
+      - hello my name is Dominique
+      - hello my name is Glenna
+      - hello my name is Thaddeus
+      - hello my name is Ivy
+      - hello my name is Hammett
+      - hello my name is Aurora
+      - hello my name is Anika
+      - hello my name is Shellie
+      - hello my name is Galvin
+      - hello my name is Emerson
+      - hello my name is Montana
+      - hello my name is Jack
+      - hello my name is Quinn
+      - hello my name is Cedric
+      - hello my name is Uriah
+      - hello my name is Ashton
+      - hello my name is Uriel
+      - hello my name is Melissa
+      - hello my name is Judah
+      - hello my name is Kyra
+      - hello my name is Kennedy
+      - hello my name is David
+      - hello my name is Josiah
+      - hello my name is Hope
+      - hello my name is Sybil
+      - hello my name is Nolan
+      - hello my name is Pascale
+      - hello my name is Veronica
+      - hello my name is Deacon
+      - hello my name is India
+      - hello my name is Hall
+      - hello my name is Alice
+
+  - intent: handle_insult
+    examples: |
+      - you are a chutiye
+      - you have a neckbeard
+      - dickhead
+      - chutiye
+      - chu
+      - you are an idiot
+      - nigger
+      - you are a chutiye
+      - moron
+      - chutiye
+      - f u
+      - fuck you
+      - fuck
+      - you piece of shit
+      - Fuck this
+      - I hate you
+      - chewtiye
+      - idiot
+      - chut
+      - I bet your brain feels as good as new, seeing that you never use it.
+      - nigger
+      - you are an idiot
+      - you piece of shit
+      - you are a dumbass
+      - you fucking nigger
+      - you nibba
+      - You are stupid
+      - fuck you and your company
+      - i hate you
+      - dipshit
+      - you moron
+      - you retard
+      - "If brain cells had value, you'd be broke. "
+      - 'Your IQ is roughly around room temperature. '
+      - fuck this shit
+      - chutmarike
+      - bhosadike
+      - madarchod
+      - gand mara
+      - gand marwa
+      - gand maraa
+
+  - intent: how_is_it_going_to_help
+    examples: |
+      - how can you help me
+      - how will it help me?
+      - how is it going to benefit my organisation?
+      - how will it help?
+      - how’s it going to help me
+      - Are you sure its going to help me
+      - How is it going to help me
+
+  - intent: human_handoff
+    examples: |
+      - I want to talk to a human
+      - i want to talk to a human
+      - let me speak with a real person please
+      - i want to speak to a manager
+      - i want to talk to someone who is smarter than you
+      - talking to a bot is stupid
+      - i dont wanna talk to a bot
+      - let me talk to a human
+      - can you put me in touch with a human?
+      - i would like to speak to a person
+      - that's annoying I'd like to speak to someone real
+      - give me a human now
+      - Can I speak to anyone who can really help me?
+      - I don't wanna talk to a bot
+      - gimme a proper human
+      - I want to talk to the founders
+      - are there also humans working for your company?
+      - can i please speak to a human?
+      - I dont like to talk to a machine
+      - let me talk to a real person
+      - i want to talk to someone else
+      - wrong i want to speak to a human
+      - speak to a real person
+      - give me a human
+      - human handoff
+      - service agent
+      - i want to speak to a real person
+      - someone from customer care
+      - please give me a human
+      - can you forward me to your team
+      - i want to talk to a person
+      - i want to speak to customer service
+      - customer service
+      - I would like to get in touch with your sales team
+      - I would like to get in touch with your support team
+      - I would like to get in touch with someone in your team
+
+  - intent: inform
+    examples: |
+      - Herbert
+      - 1 euro
+      - a bot which sends cute shiba pictures
+      - developer advocate
+      - Juste
+      - tylerthemateman@clubmate.com
+      - Tyler
+      - I'm a construction worker
+      - 1 million big ones
+      - Club Mate
+      - me@me.com
+      - herbert@gmail.com
+      - shiba@shiba.com
+      - my name is jimmy
+      - chief lemonade officer
+      - a cool boy
+      - an ice cream bot
+      - 500 million
+      - half a million
+      - it's akela
+      - AI researcher
+      - a big ol transformer
+      - big old bot
+      - hi@elise.de
+      - juste@juste.com
+      - ulle@gmx.de
+      - CSI
+      - 10 m
+      - $1
+      - ml researcher
+      - I am a head of business intelligence
+      - i have about 200 bucks in my savings account
+      - 5 quid
+      - None
+      - 200 bucks
+      - i'd like to build sentient glibber or glitter
+      - sam
+      - like 60 quid
+      - nothing
+      - tamedmouse@micerevolution.fr
+      - volodimir voldemarich
+      - idk
+      - 'the bot that helps you choose insurance for the car '
+      - junk@junk.com
+      - j@p.com
+      - i don't think either of those
+      - ok I'm actually an engineer
+      - al@acme.org
+      - ACME brands
+      - Al Capone
+      - £50k
+      - the bot should help with HR stuff
+      - none@none.co.uk
+      - Juste P
+      - '50'
+      - I am a Data Scientist
+      - my own
+      - me@you.de
+      - akelaistcool@schwabenländle.de
+      - '120000'
+      - Im a full stack developer
+      - spam bot
+      - the bot like you
+      - picking my nose
+      - im a freelancer
+      - health care
+      - something to talk to my friends while I'm busy working
+      - my bot is in english
+      - the language is english
+      - it’s in english
+      - english
+      - i want to extract names
+      - places
+      - companies
+      - get dates from messages
+      - a place
+      - places and names
+      - i am interested in ordinals
+      - amounts of money
+      - how much money
+      - amounts
+      - how long
+      - extracting durations
+      - distances
+      - the distance between places
+      - the distance from one place to an other
+      - ok its email@email.com
+      - jimmy neutron industries
+      - An ice cube bot
+      - 123@akela.com
+      - akela@akela.com
+      - akela's company
+      - akela
+      - one billion
+      - an akela bot that I can talk to akela all the time
+      - i'm in marketing
+      - ACME bank (company)
+      - Alan
+      - about 10 k
+      - i want a great bot to impress my boss
+      - one like this
+      - badass bot tester
+      - a bot to get a promotion
+      - i am a projject manager
+      - im a dev
+      - I'm a real good engineer
+      - James
+      - valid_email@one.de
+      - valid@one.email
+      - unemployed
+      - on that will get me promoted
+      - I spend money
+      - it's 500000000
+      - A wolf bot
+      - akilla
+      - a turtle
+      - i sell turtles
+      - '10'
+      - i'm a glibber and glitter salesman
+      - the ice cream factory is the company
+      - akela propella
+      - I work in innvoation
+      - my job function is developer
+      - I am responsible for our innovation department
+      - I work as a frontend dev
+      - project manager
+      - I'm a project manager
+      - I'm project manager
+      - it's foo@bar.com
+      - '10000000'
+      - ACME Mops
+      - mrmop@mops.app
+      - 5 bucks
+      - I'm a janitor
+      - My email is linda@linda.linda
+      - I wanna build a bot that sends the people cute animal pictures based on their favorite color
+      - my name is linda
+      - I'm a developer
+      - i'm a developer
+      - we're building a conversational assistant for our employees to book meeting rooms.
+      - I'm a python developer
+      - I'm an AI researcher
+      - Max Meier
+      - My name is Max Meier
+      - Ralph White
+      - I'm Tom Miller
+      - Ann Snyder
+      - Victoria McMillan
+      - Denise Perry
+      - Bob Geldorf
+      - Susan Catterfeld
+      - Taylor Shwed
+      - Meredith Grey
+      - Alex Karev
+      - a insurance tool that consults potential customers on the best life insurance to choose.
+      - I work in project management
+      - I want to build a cool bot
+      - my emayl is yolo at yolo.de
+      - manager
+      - 50k
+      - I want to build a bot
+      - a chatbot for mops - mopbot
+      - Mr. Mop
+      - loretta@strawberry-ice.come because I work in the department for strawberry ice
+      - not sure yet
+      - 2 euro
+      - Philip
+      - Bosch
+      - I want to build an FAQ bot
+      - I'm a python developer
+      - Jim
+      - hello@hello.com
+      - I want to build a lot of different bots
+      - I'm a machine learning engineer
+      - I want to build a sales bot
+      - Developer
+      - 10000k
+      - I wanna build a super bot to send me cute animal pictures
+      - adele@gmx.com
+      - my name is marc
+      - one trillion dollar
+      - I'm a [full stack developer](job_function:full stack developer)
+      - moabit@yoga.com
+      - it's the moabit yoga studio
+      - my name is oli miller
+      - I'm the lead engineer
+      - 100000k
+      - 10000 dollars
+      - 400 trilion
+      - philipp@superphilipp.philipp
+      - I'm in business
+      - 5 mln
+      - Alex
+      - my name is loretta meier
+      - I'm in project mgmt
+      - we don't have one
+      - assistant to the CEO
+      - CEO
+      - 60 million INR
+      - schlabberjimmy@glibberglitter.edu
+      - between 100 to 200.000
+      - 50,000 dollar
+      - not sure yet, we plan with 50 thousand euro at the moment
+      - 75000-150000 euro
+      - our estimation is 10k
+      - I work for Bayer
+      - The name of the company is Daimler
+      - 'company: uber'
+      - it's a small company from the US, the name is Microsoft
+      - it's a tech company, apple
+      - microsoft
+      - clue
+      - SAP
+      - 50,000,000 INR
+      - IBM
+      - bout 4,000,000 INR
+      - around $500,000 per year
+      - '123'
+      - '1234'
+      - a2b3c4d5
+      - abcde
+      - abcd
+      - abcd efgh
+      - '1'
+      - '45113'
+      - '4612'
+      - '43499'
+      - 100k
+      - 100k
+      - 240k/year
+      - 150,000 USD
+      - 150,000$/ year
+      - we plan with 250.000 euro for one year
+      - t-mobile US
+      - vodafone
+      - accenture
+      - chengming@aliyun.com
+      - solomq122@qq.mail.com
+      - Product Manager
+      - I'm a product manager
+      - I work as a project manager
+      - I'm the developer
+      - data analyst
+      - data scientist
+      - dev
+      - engineer
+      - brand manager
+      - marketing
+      - sales manager
+      - growth manager
+      - CTO
+      - sislawawa@india.com
+      - alexander.denker@tu-berlin.de
+      - nerd@stanford.edu
+      - saswatkarhar@rediffmail.com
+      - McKinsey Germany
+      - BCG brazil
+      - BCG digital ventures
+      - I work for Stanford University
+      - I work for the AI research group of the turing centre of the UBC, Vancouver, Canada
+      - maxmeier@firma.de
+      - bot-fan@bots.com
+      - COO
+      - maxmeier@firma.de
+      - my email is markjobs@ibm.com
+      - my email is khardik.kmosu@bol.net.in
+      - my business mail is mikemiller@sales.apple.com
+      - email = stephanywhite@microsoft.com
+      - 'mail: julianfrank@hotmail.com'
+      - santaklaus@googlemail.com
+      - bot-fan@bots.com
+      - we think 4 million INR/ year
+      - Jim Halpert
+      - Udo.AI
+      - linda@yoloyolo.de
+      - Linda
+      - problem solving
+      - Helvetia
+      - a good one?
+      - elise
+      - elise@gmail.com
+      - a customer service support system
+      - one that flatters me every morning
+      - I'm the boss
+      - 90k
+      - i'm donezo
+      - Udo
+      - my function is to serve butter
+      - head of biz deve
+      - 300k number
+      - i work in biz dev
+      - my email is kevin@yoloooz.de
+      - ceo
+      - a sales bot
+      - '200000000'
+      - linda
+      - linda@mail.com
+      - none
+      - i don't know
+      - Zendesk
+      - Jacqueline
+      - 123@gmail.com
+      - udo@udo.ai
+      - hey@kldpeffesfoken.oinwf
+      - The master of desaster
+      - wurst co kg
+      - No company!!
+      - I am a freelancer
+      - one that will get me promoted
+      - a great one
+      - im a developer
+      - '0'
+      - I'm a business woman
+      - I would like to build an ice cube dispenser bot
+      - 500k
+      - i'm a develope
+      - lead generation
+      - '100000'
+      - im in marketing
+      - yesplease@yes.com
+      - SCALABLE MINDS (company)
+      - My name is Tom
+      - conversational
+      - propella@daskapital.de
+      - there is no budget
+      - I work at the NYT
+      - Foudner
+      - linda@linda.com
+      - i'm in customer success
+      - i'm head of sales
+      - linda's company
+      - a akela bot
+      - i'm in sales
+      - Freya
+      - I work for the New York Times
+      - Ali Park
+      - 1 million
+      - I'm an engineer
+      - it's Ali Park
+      - 2 million
+      - ali@nytimes.com
+      - I work for the new york times
+      - the New York Times
+      - i'm a product manager
+      - a chocolate bot
+      - BBC
+      - i want to build a bot
+      - oov
+      - My budget is oov
+      - My email is oov
+      - oov per year
+      - the name of the company is oov
+      - I work for oov
+      - Akela
+      - a health bot
+      - help@help.com
+      - i'm a developer
+      - i want to build a health bot
+      - 200k
+      - My name is Alex
+      - akela@philipp.com
+      - test@test.com
+      - one bot
+      - I want to build a health insurance bot
+      - I'm a software engineer
+      - John Smith
+      - Jenny
+      - douglas
+      - klaus klausson
+      - 5 euros
+      - i'd like to build a transformer
+      - i'm a race car driver
+      - i wanna build all the bots
+      - Bolschewistische Kurkapelle Schwarz-Rot
+      - ifuckrobots666@apple.com
+      - my name is saswat
+      - i am self emplayed
+      - a sentient robot
+      - i have none
+      - 2000k
+      - klausimausi@apple.com
+      - i want to build all the bots
+      - ulrikovitcheisenkleber@eisenkleberlimitedcokg.com
+      - eisenkleber limited co kg
+      - ulrikovitch eisenkleber
+      - don't have one
+      - designer
+      - a pizza bot
+      - operations
+      - I'm Akela
+      - no idea
+      - Vladimir
+      - around 200k
+      - i'm a dev
+      - i don't have it
+      - product manager
+      - I do not know yet
+      - have no idea
+      - none i will build it from scraps
+      - 123@skdv.fvsdj
+      - reddit
+      - Developer Advocate
+      - a cool bot
+      - developer
+      - i want to build bots
+      - 20k
+      - i don't have one
+      - a bot
+      - philipp@thephilippcompany.com
+      - philipp company
+      - philipp
+      - i want to built a philipp bot
+      - joey@koolmanconsulting.com
+      - one which asks me loads about myself
+      - Elise
+      - myemail@gmail.com
+
+  - intent: mood_ask
+    examples: |
+      - How are you?
+      - how do you do?
+      - how is it going
+      - how is your day
+      - how is your day going
+      - how are you today
+      - how have you been
+      - how's life
+      - How was your day?
+      - What's new?
+      - what's good
+      - What's going on?
+      - what about your day
+      - is everything okay
+      - Is everything ok?
+      - is everything all right
+      - I'm fine and you
+      - How've you been?
+      - how's your day going
+      - How's life treating you friend?
+      - how's life been treating you?
+      - how are you feeling
+      - How's it hanging?
+      - How's it going
+      - how is your evening
+      - how are you doing this morning
+      - are you having a good day
+      - how are you
+      - How’s it going?
+      - How are you doing?
+      - What’s up?
+      - What’s new?
+      - What’s going on?
+      - How’s everything ?
+      - How are things?
+      - How’s life?
+      - How’s your day?
+      - How’s your day going?
+      - How have you been?
+      - How do you do?
+      - Are you OK?
+      - Whazzup?
+      - Sup?
+      - You alright?
+      - ' Alright mate?'
+      - Ahoy matey how are you?
+      - are you alright
+      - Are you ok?
+      - are you okay
+      - Do you feel good?
+      - how are things going
+      - how are things with you?
+      - How are things?
+      - how are you doing
+      - What's up
+      - What's up man
+      - Do you have a great day?
+      - how are you doing today my sweet friend
+      - how are you doing?
+      - how are u
+      - How are you?
+      - how are you?
+
+  - intent: nice_talking_to_you
+    examples: |
+      - Good to see you
+      - Nice to see you
+      - Nice talking to you
+      - Nice chatting with you
+
+  - intent: stop
+    examples: |
+      - I want you to stop
+      - stop
+      - restart
+      - stop it
+      - I want you to stop
+      - stop the chat
+      - exit the chatbot
+      - stop execution
+      - please stop
+      - quit
+      - exit the action
+      - just stop
+      - stop the action
+      - quit it
+      - please stop
+      - stop the action
+      - I want you to stop
+      - exit the action
+      - exit
+      - quit
+      - quit it
+      - just stop
+      - exit the chatbot
+      - stop
+      - stop execution
+      - stop it
+      - exit
+      - I want you to stop
+      - stop the chat
+
+  - intent: subscribe_newsletter
+    examples: |
+      - i would love to get the newsletter
+      - send me the newsletter
+      - get the newsletter
+      - get newsletter
+      - subscription newsletter
+      - i want to get the newsletter
+      - i'm craving the newsletter
+      - i prefer to get the newsletter
+      - subscribe me to the newsletter
+      - please subscribe me to your newsletter
+      - sign me up for that newsletter
+      - i want to receive the newsletter from now on
+      - can you subscribe me to the newsletter
+      - i want the newsletter
+      - i want to subsribe to the newsletter
+      - Newsletter
+      - subscribe
+      - get the newsletter
+      - I also want to subscribe
+      - id like to subscribe
+      - I'd like to subscribe
+      - I want the newsletter
+      - sign up
+      - i want to signup
+      - newsletter please
+      - nl
+      - id like to receive the newsletter
+      - i want the newsletter
+      - add me as your subscriber
+      - add me to the subscription list
+      - newsletter please my email is linda@yolo.de
+      - i want to receive your nl
+      - i want to sign up for the newsletter
+      - can you pelase subscribe me to the newsletter
+      - lets do the newsletter signup
+      - add me to the newsletter list
+      - register me for the newsletter
+      - please subscribe me to the newsletter alex@example.cz
+      - subscribe my email alex@mail.mail to the newsletter
+      - Subscribe
+      - i also want to sign up for the newsletter
+      - subscribe to your newsletter
+      - can i get emails from you
+      - news
+      - i'd like your newspaper please
+      - sign up for newsletter
+      - what about signing up for the newsletter?
+      - get a subscription
+      - to make a subscribtion
+      - let's make a subscribtion
+      - I would love to subscribe to a newsletter!
+      - i need this dope newsletter
+      - oh actually i want to get the newsletter
+      - i want to subscribe to your newsletter
+      - can i sign up to the newsletter too?
+      - do the newsletter then
+      - i want to subscribe
+      - i want newsletter
+      - subscribe to the newsletter
+      - i want to signup for the nl
+      - please sign me up for the newsletter
+      - add me to the newsletter
+      - sign up to the newsletter
+      - i need to be on the newsletter list
+      - i want to join the newsletter mails
+      - i want to receive the newsletter emails
+      - can you sign me up for the newsletter
+      - join that newsletter
+      - i want to join the newsletter list
+      - how about the newsletter signup
+      - newsletter registration
+      - subscribe to newsletter
+      - i go for the newsletter
+      - lets try the newsletter signup
+      - lets try the newsletter registration
+      - how about the newsletter
+      - newsletter registration first
+      - first lets sign up for the newsletter
+      - now i want to signup for the newsletter
+      - can you add alan@mail.com to the newsletter list?
+      - i want on this dope newsletter - my email is alex@mail.com
+      - but please sign me up for the newsletter!
+      - newsletter it is
+      - newsletter pls
+      - add me to the newsletter
+      - yeaaah lets go for the newsletter
+      - I want to subscribe to your newsletter
+      - i want on that dope newsletter
+      - I wanna sign up for the newsletter.
+      - I want to sign up for the newsletter.
+      - I would like to sign up for the newsletter.
+      - Subscribe
+      - Sign up.
+      - sign up for the NL
+      - newsletter
+      - Sign me up for the newsletter.
+      - Newsletter please.
+
+  - intent: thank
+    examples: |
+      - thanks!
+      - thanks for forum link, I'll check it out
+      - cool thanks
+      - great thanks
+      - thank you
+      - thanks this is great news
+      - thanks
+      - Cool. Thanks
+      - thanks!
+      - thanks
+      - Thanks!
+      - cool thank you
+      - amazing, thanks
+      - cool, thanks
+      - Thanks
+      - Thank you
+      - Thank you so much
+      - Thanks bot
+      - Thanks for that
+      - thanks for the help
+      - cheers bro
+      - ok thanks!
+      - perfect thank you
+      - thanks a bunch for everything
+      - thanks a lot
+      - cheers
+
+  - intent: types_of_chatbots
+    examples: |
+      - what are the types of chatbots?
+      - What kind of chatbots are there?
+      - I want to learn about the types of chatbots
+      - I want to know more about the types of chatbots
+
+  - intent: visit_website
+    examples: |
+      - I want to visit your website?
+      - Do you have a website?
+      - Do you have a site?
+      - I want to check out your site
+      - What’s your website?
+
+  - intent: when_will_you_beat_turing_test
+    examples: |
+      - when will you beat the turing test?
+      - when will you become good enough to fool humans?
+
+  - intent: why_did_you_make_a_bot
+    examples: |
+      - why did you make a chatbot?
+      - why did you decide to make a chatbot?
+
+  - intent: why_machine_learning
+    examples: |
+      - Why use machine learning to predict/direct the conversation rather than using simple rules and logic?
+      - why use machine learning in bots?
+      - why use deep learning for bots?
+      - why use machine learning for bots?
+
+  - intent: why_make_a_bot
+    examples: |
+      - why make a chatbot?
+      - why would anyone make a chatbot?

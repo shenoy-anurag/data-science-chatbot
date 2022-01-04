@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongo:
+    restart: always
+    image: mongo:latest
+    volumes:
+      - /var/lib/mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - cb_backend
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./app/env_var.sh
+    volumes:
+      - ./app:/app
+    networks:
+      - cb_backend
+    ports:
+      - "5000:5000"
+
+networks:
+  cb_backend:
+    driver: bridge

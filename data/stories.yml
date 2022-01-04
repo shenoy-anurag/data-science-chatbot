@@ -1,0 +1,95 @@
+version: "3.0"
+
+stories:
+
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: chitchat
+    steps:
+      - or:
+          - intent: ask_builder
+          - intent: ask_howbuilt
+          - intent: ask_howold
+          - intent: ask_isbot
+          - intent: ask_time
+          - intent: ask_whatismyname
+          - intent: ask_whoisit
+          - intent: good_day
+          - intent: mood_ask
+          - intent: handle_insult
+          - intent: nice_talking_to_you
+          - intent: telljoke
+          - intent: how_is_it_going_to_help
+      - action: action_chitchat
+
+  - story: explain
+    steps:
+      - or:
+          - intent: why_make_a_bot
+          - intent: dialogue_tools
+          - intent: explain_deep_learning
+          - intent: explain_dialogue_machines
+          - intent: explain_entities
+          - intent: explain_generative_chatbot
+          - intent: explain_intents
+          - intent: explain_keras
+          - intent: explain_nlp
+          - intent: explain_nlu
+          - intent: explain_nltk
+          - intent: explain_retrieval_chatbot
+          - intent: explain_spacy
+          - intent: explain_tensorflow
+          - intent: explain_turing_test
+          - intent: types_of_chatbots
+          - intent: when_will_you_beat_turing_test
+          - intent: why_did_you_make_a_bot
+          - intent: why_machine_learning
+          - intent: why_make_a_bot
+      - action: action_explain_chatbot
+      - intent: affirm
+      - action: utter_anything_else
+      - action: action_random_learning_options
+
+  - story: welcome
+    steps:
+      - intent: welcome_message
+      - action: utter_welcome_message
+      - intent: get_started
+      - action: action_get_started
+      - action: action_random_learning_options
+
+  - story: visit website/social media
+    steps:
+      - intent: visit_website
+      - action: action_visit_website
+
+  - story: what's possible
+    steps:
+      - intent: ask_whatspossible
+      - action: action_get_started
+      - action: action_random_learning_options
