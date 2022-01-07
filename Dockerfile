@@ -22,4 +22,4 @@ RUN pip3 install -r /bot/requirements.txt
 
 EXPOSE 5000
 
-ENTRYPOINT ["python3", "/bot/app/server.py"]
+#ENTRYPOINT ["python3", "/bot/app/server.py"]
