@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    entrypoint: ./app/entrypoint.sh
+    entrypoint: ./bot_entrypoint.sh
     env_file:
       - ./env_var.sh
     volumes:

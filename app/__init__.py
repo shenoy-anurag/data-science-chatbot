@@ -7,7 +7,7 @@ from sanic import Sanic
 from sanic_cors import CORS
 from sanic_jwt import Initialize
 
-from .utils import authenticate
+from app.utils import authenticate
 
 logger = logging.getLogger(__name__)
 
