@@ -137,7 +137,7 @@ dmypy.json
 #rasa/
 #rasa_sdk/
 
-test.py
+/test.py
 convert_data.py
 
 env_var.sh
