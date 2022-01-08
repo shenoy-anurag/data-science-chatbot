@@ -11,7 +11,7 @@ from sanic.response import json as jsonify
 from sanic_jwt import protected
 from sanic_restful_api import Api, Resource
 
-from app import app
+from app import bot_app
 from app.common.constants import (
     ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION
 )
@@ -47,7 +47,7 @@ _endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
 
 _action_endpoint = _endpoints.action
 
-app.logger.debug(_endpoints.__dict__)
+bot_app.logger.debug(_endpoints.__dict__)
 
 
 async def load_agent_on_start(
@@ -75,7 +75,7 @@ bot_agent = load_agent_on_start(
     model_path="./models/bot-v1.tar.gz",
     endpoints=_endpoints,
     remote_storage=None,
-    app=app,
+    app=bot_app,
     loop=asyncio.get_event_loop()
 )
 
@@ -84,14 +84,14 @@ async def handle_text_with_agent(agent, user_chat, sender_id):
     return await agent.handle_text(user_chat, sender_id=sender_id)
 
 
-@app.get("/health")
+@bot_app.get("/health")
 async def health(_) -> HTTPResponse:
     """Ping endpoint to check if the server is running and well."""
     body = {"status": "ok"}
     return response.json(body, status=200)
 
 
-@app.route("/protected")
+@bot_app.route("/protected")
 @protected()
 async def protected_api(request):
     print(request.json)
@@ -104,7 +104,7 @@ class Chat(Resource):
     async def post(self, request):
         user_text = request.json.get('chat')
         sender_id = request.json.get('id')
-        return await app.agent.handle_text(user_text, sender_id=sender_id)
+        return await bot_app.agent.handle_text(user_text, sender_id=sender_id)
 
 
 api.add_resource(Chat, '/chat', endpoint='chat')
