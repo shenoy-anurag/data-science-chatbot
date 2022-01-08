@@ -70,9 +70,9 @@ async def load_agent_on_start(
     logger.info("Rasa server is up and running.")
     return app.agent
 
-
+# model_path="./models/bot-v1.tar.gz"
 bot_agent = load_agent_on_start(
-    model_path="./models/bot-v1.tar.gz",
+    model_path="./models/20220107-221716-spatial-solenoid.tar.gz",
     endpoints=_endpoints,
     remote_storage=None,
     app=bot_app,
