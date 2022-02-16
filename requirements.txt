@@ -115,6 +115,16 @@ slackclient==2.9.3
 SQLAlchemy==1.4.28
 tabulate==0.8.9
 tarsafe==0.0.3
+tensorboard==2.7.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+tensorflow-addons==0.14.0
+tensorflow-cpu==2.6.0
+tensorflow-estimator==2.7.0
+tensorflow-hub==0.12.0
+tensorflow-io-gcs-filesystem==0.23.1
+tensorflow-probability==0.13.0
+tensorflow-text==2.6.0
 termcolor==1.1.0
 terminaltables==3.1.10
 threadpoolctl==3.0.0

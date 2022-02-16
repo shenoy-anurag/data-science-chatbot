@@ -13,11 +13,13 @@ from sanic_restful_api import Api, Resource
 
 from app import bot_app
 from app.common.constants import (
-    ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION
+    ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, DOMAIN_FILE, CONFIG_FILE, ENDPOINTS_FILE,
+    NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
 )
 from app.utils import remove_null_values_from_dict
 from rasa.core import agent
 from rasa.core.agent import Agent
+from rasa.model_training import train
 from rasa.core.utils import AvailableEndpoints, EndpointConfig
 
 logger = logging.getLogger(__name__)
@@ -27,27 +29,28 @@ api = Api(app_blueprint)
 
 _endpoints = AvailableEndpoints.read_endpoints(os.path.join(ROOT_FOLDER_PATH, 'endpoints.yml'))
 
-tracker_endpoint_config = {
-    'store_type': 'mongod',
-    'url': os.environ['MONGO_URI'],
-    'db': os.environ['DB_NAME'],
-    'collection': 'conversations',
-    'username': os.environ.get('DB_USERNAME'),
-    'password': os.environ.get('DB_PASSWORD'),
-    'auth_source': os.environ['DB_NAME']
-}
-tracker_endpoint_config = remove_null_values_from_dict(tracker_endpoint_config)
-_endpoints.tracker_store = EndpointConfig.from_dict(tracker_endpoint_config)
 
-url_format = copy.deepcopy(URL_FORMAT_SECURE if os.environ['ENVIRONMENT'] == ENV_PRODUCTION else URL_FORMAT)
-action_endpoint_config = {
-    'url': url_format.format(host=os.environ['ACTIONS_HOST'], port=os.environ['ACTIONS_PORT']) + 'webhook'
-}
-_endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
-
-_action_endpoint = _endpoints.action
-
-bot_app.logger.debug(_endpoints.__dict__)
+# tracker_endpoint_config = {
+#     'store_type': 'mongod',
+#     'url': os.environ['MONGO_URI'],
+#     'db': os.environ['DB_NAME'],
+#     'collection': 'conversations',
+#     'username': os.environ.get('DB_USERNAME'),
+#     'password': os.environ.get('DB_PASSWORD'),
+#     'auth_source': os.environ['DB_NAME']
+# }
+# tracker_endpoint_config = remove_null_values_from_dict(tracker_endpoint_config)
+# _endpoints.tracker_store = EndpointConfig.from_dict(tracker_endpoint_config)
+#
+# url_format = copy.deepcopy(URL_FORMAT_SECURE if os.environ['ENVIRONMENT'] == ENV_PRODUCTION else URL_FORMAT)
+# action_endpoint_config = {
+#     'url': url_format.format(host=os.environ['ACTIONS_HOST'], port=os.environ['ACTIONS_PORT']) + 'webhook'
+# }
+# _endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
+#
+# _action_endpoint = _endpoints.action
+#
+# bot_app.logger.debug(_endpoints.__dict__)
 
 
 async def load_agent_on_start(
@@ -70,14 +73,16 @@ async def load_agent_on_start(
     logger.info("Rasa server is up and running.")
     return app.agent
 
-# model_path="./models/bot-v1.tar.gz"
-bot_agent = load_agent_on_start(
-    model_path="./models/20220107-221716-spatial-solenoid.tar.gz",
-    endpoints=_endpoints,
-    remote_storage=None,
-    app=bot_app,
-    loop=asyncio.get_event_loop()
-)
+
+# if os.path.exists("./models/20220107-221716-spatial-solenoid.tar.gz"):
+#     # model_path="./models/bot-v1.tar.gz"
+#     bot_agent = load_agent_on_start(
+#         model_path="./models/20220107-221716-spatial-solenoid.tar.gz",
+#         endpoints=_endpoints,
+#         remote_storage=None,
+#         app=bot_app,
+#         loop=asyncio.get_event_loop()
+#     )
 
 
 async def handle_text_with_agent(agent, user_chat, sender_id):
@@ -97,6 +102,22 @@ async def protected_api(request):
     print(request.json)
     print(request.token)
     return jsonify({"protected": True})
+
+
+class TrainBot(Resource):
+    @protected()
+    async def post(self, request):
+        nlu_files = [NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE]
+        training_result = train(domain=DOMAIN_FILE, config=CONFIG_FILE, training_files=nlu_files)
+        output_path = training_result.model
+        bot_agent = load_agent_on_start(
+            model_path=output_path,
+            endpoints=_endpoints,
+            remote_storage=None,
+            app=bot_app,
+            loop=asyncio.get_event_loop()
+        )
+        return "training"
 
 
 class Chat(Resource):

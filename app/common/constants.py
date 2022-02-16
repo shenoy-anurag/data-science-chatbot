@@ -1,5 +1,6 @@
 # App and FileSystem:
-ROOT_FOLDER_PATH = '/bot'
+# ROOT_FOLDER_PATH = '/bot'
+ROOT_FOLDER_PATH = '../..'
 
 # API:
 API_STATUS_SUCCESS = 'Success'
@@ -14,6 +15,14 @@ URL_FORMAT_SECURE = 'https://{host}:{port}/'
 ENV_PRODUCTION = 'production'
 ENV_STAGING = 'staging'
 ENV_DEVELOPMENT = 'development'
+
+# Training Data:
+DOMAIN_FILE = "../../domain.yml"
+CONFIG_FILE = "../../config.yml"
+ENDPOINTS_FILE = "../../endpoints.yml"
+NLU_MAIN_FILE = "../../data/nlu.yml"
+NLU_RULES_FILE = "../../data/rules.yml"
+NLU_STORIES_FILE = "../../data/stories.yml"
 
 # Models:
 MODEL_BASE_PATH = '/bot/models'
