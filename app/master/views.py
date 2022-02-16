@@ -89,19 +89,33 @@ async def handle_text_with_agent(agent, user_chat, sender_id):
     return await agent.handle_text(user_chat, sender_id=sender_id)
 
 
-@bot_app.get("/health")
-async def health(_) -> HTTPResponse:
-    """Ping endpoint to check if the server is running and well."""
-    body = {"status": "ok"}
-    return response.json(body, status=200)
+# @bot_app.get("/health")
+# async def health(_) -> HTTPResponse:
+#     """Ping endpoint to check if the server is running and well."""
+#     body = {"status": "ok"}
+#     return response.json(body, status=200)
+#
+#
+# @bot_app.route("/protected")
+# @protected()
+# async def protected_api(request):
+#     print(request.json)
+#     print(request.token)
+#     return jsonify({"protected": True})
 
 
-@bot_app.route("/protected")
-@protected()
-async def protected_api(request):
-    print(request.json)
-    print(request.token)
-    return jsonify({"protected": True})
+class Health(Resource):
+    async def post(self, request):
+        body = {"status": "ok"}
+        return response.json(body, status=200)
+
+
+class Protected(Resource):
+    @protected()
+    async def protected_api(self, request):
+        print(request.json)
+        print(request.token)
+        return jsonify({"protected": True})
 
 
 class TrainBot(Resource):
@@ -128,4 +142,7 @@ class Chat(Resource):
         return await bot_app.agent.handle_text(user_text, sender_id=sender_id)
 
 
+api.add_resource(Health, '/health', endpoint='health')
+api.add_resource(Protected, '/protected', endpoint='protected')
 api.add_resource(Chat, '/chat', endpoint='chat')
+api.add_resource(TrainBot, '/train', endpoint='train')
