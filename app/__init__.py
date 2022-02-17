@@ -2,7 +2,7 @@ import datetime
 import logging
 import os
 
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from sanic import Sanic
 from sanic_cors import CORS
 from sanic_jwt import Initialize
