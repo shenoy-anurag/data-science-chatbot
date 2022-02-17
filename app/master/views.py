@@ -142,7 +142,7 @@ class Chat(Resource):
         return await bot_app.agent.handle_text(user_text, sender_id=sender_id)
 
 
-api.add_resource(Health, '/health', endpoint='health')
+api.add_resource(Health, '/')
 api.add_resource(Protected, '/protected', endpoint='protected')
 api.add_resource(Chat, '/chat', endpoint='chat')
 api.add_resource(TrainBot, '/train', endpoint='train')
