@@ -17,12 +17,12 @@ ENV_STAGING = 'staging'
 ENV_DEVELOPMENT = 'development'
 
 # Training Data:
-DOMAIN_FILE = "../../domain.yml"
-CONFIG_FILE = "../../config.yml"
-ENDPOINTS_FILE = "../../endpoints.yml"
-NLU_MAIN_FILE = "../../data/nlu.yml"
-NLU_RULES_FILE = "../../data/rules.yml"
-NLU_STORIES_FILE = "../../data/stories.yml"
+DOMAIN_FILE = "domain.yml"
+CONFIG_FILE = "config.yml"
+ENDPOINTS_FILE = "endpoints.yml"
+NLU_MAIN_FILE = "data/nlu.yml"
+NLU_RULES_FILE = "data/rules.yml"
+NLU_STORIES_FILE = "data/stories.yml"
 
 # Models:
 MODEL_BASE_PATH = '/bot/models'
