@@ -1,26 +1,29 @@
 import asyncio
-import copy
 import logging
 import os
 from asyncio import AbstractEventLoop
 from typing import Text, Optional
 
 from sanic import response, Blueprint, Sanic
-from sanic.response import HTTPResponse
 from sanic.response import json as jsonify
 from sanic_jwt import protected
 from sanic_restful_api import Api, Resource
 
 from app import bot_app
 from app.common.constants import (
-    ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, DOMAIN_FILE, CONFIG_FILE, ENDPOINTS_FILE,
-    NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
+    ROOT_FOLDER_PATH, DOMAIN_FILE, CONFIG_FILE, NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
 )
-from app.utils import remove_null_values_from_dict
+# from app.common.constants import (
+#     ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, DOMAIN_FILE, CONFIG_FILE, ENDPOINTS_FILE,
+#     NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
+# )
+# from app.utils import remove_null_values_from_dict
 from rasa.core import agent
 from rasa.core.agent import Agent
+from rasa.core.utils import AvailableEndpoints
 from rasa.model_training import train
-from rasa.core.utils import AvailableEndpoints, EndpointConfig
+
+# from rasa.core.utils import AvailableEndpoints, EndpointConfig
 
 logger = logging.getLogger(__name__)
 
@@ -105,7 +108,7 @@ async def handle_text_with_agent(agent, user_chat, sender_id):
 
 
 class Health(Resource):
-    async def post(self, request):
+    async def get(self, request):
         body = {"status": "ok"}
         return response.json(body, status=200)
 
