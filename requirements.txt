@@ -1,5 +1,5 @@
 rasa==3.0.8
-rasa-sdk==3.0.5
+rasa-sdk==3.0.0
 sanic-jwt==1.7.0
 sanic-plugin-toolkit==1.2.0
 sanic-restful-api==0.1.3
