@@ -132,10 +132,13 @@ dmypy.json
 # Mac
 .DS_Store
 
+# PyCharm
 .idea/
 
+# User-Defined
 #rasa/
 #rasa_sdk/
+.rasa/
 
 /test.py
 convert_data.py
