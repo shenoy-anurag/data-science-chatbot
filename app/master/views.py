@@ -1,4 +1,5 @@
 import asyncio
+import copy
 import logging
 import os
 from asyncio import AbstractEventLoop
@@ -11,49 +12,50 @@ from sanic_restful_api import Api, Resource
 
 from app import bot_app
 from app.common.constants import (
-    ROOT_FOLDER_PATH, DOMAIN_FILE, CONFIG_FILE, NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
+    URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, ENV_DEVELOPMENT, DOMAIN_FILE, CONFIG_FILE,
+    ENDPOINTS_FILE, NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
 )
-# from app.common.constants import (
-#     ROOT_FOLDER_PATH, URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, DOMAIN_FILE, CONFIG_FILE, ENDPOINTS_FILE,
-#     NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
-# )
-# from app.utils import remove_null_values_from_dict
+from app.utils import remove_null_values_from_dict
 from rasa.core import agent
 from rasa.core.agent import Agent
-from rasa.core.utils import AvailableEndpoints
+from rasa.core.utils import AvailableEndpoints, EndpointConfig
 from rasa.model_training import train
-
-# from rasa.core.utils import AvailableEndpoints, EndpointConfig
 
 logger = logging.getLogger(__name__)
 
 app_blueprint = Blueprint('app_blueprint')
 api = Api(app_blueprint)
 
-_endpoints = AvailableEndpoints.read_endpoints(os.path.join(ROOT_FOLDER_PATH, 'endpoints.yml'))
+_endpoints = AvailableEndpoints.read_endpoints(ENDPOINTS_FILE)
 
+try:
+    tracker_endpoint_config = {
+        'store_type': 'mongod',
+        'url': os.environ['MONGO_URI'],
+        'db': os.environ['DB_NAME'],
+        'collection': 'conversations',
+        'username': os.environ.get('DB_USERNAME'),
+        'password': os.environ.get('DB_PASSWORD'),
+        'auth_source': os.environ.get('DB_AUTH', 'admin')
+    }
+    tracker_endpoint_config = remove_null_values_from_dict(tracker_endpoint_config)
+    _endpoints.tracker_store = EndpointConfig.from_dict(tracker_endpoint_config)
+except:
+    # use in-memory tracker
+    pass
 
-# tracker_endpoint_config = {
-#     'store_type': 'mongod',
-#     'url': os.environ['MONGO_URI'],
-#     'db': os.environ['DB_NAME'],
-#     'collection': 'conversations',
-#     'username': os.environ.get('DB_USERNAME'),
-#     'password': os.environ.get('DB_PASSWORD'),
-#     'auth_source': os.environ['DB_NAME']
-# }
-# tracker_endpoint_config = remove_null_values_from_dict(tracker_endpoint_config)
-# _endpoints.tracker_store = EndpointConfig.from_dict(tracker_endpoint_config)
-#
-# url_format = copy.deepcopy(URL_FORMAT_SECURE if os.environ['ENVIRONMENT'] == ENV_PRODUCTION else URL_FORMAT)
-# action_endpoint_config = {
-#     'url': url_format.format(host=os.environ['ACTIONS_HOST'], port=os.environ['ACTIONS_PORT']) + 'webhook'
-# }
-# _endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
-#
-# _action_endpoint = _endpoints.action
-#
-# bot_app.logger.debug(_endpoints.__dict__)
+url_format = copy.deepcopy(
+    URL_FORMAT_SECURE if os.environ.get('ENVIRONMENT', ENV_DEVELOPMENT) == ENV_PRODUCTION else URL_FORMAT)
+action_endpoint_config = {
+    'url': url_format.format(
+        host=os.environ.get('ACTIONS_HOST', "localhost"),
+        port=":" + os.environ.get('ACTIONS_PORT', "5055") if os.environ.get('ACTIONS_PORT') else "") + 'webhook'
+}
+_endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
+
+_action_endpoint = _endpoints.action
+
+bot_app.logger.debug(_endpoints.__dict__)
 
 
 async def load_agent_on_start(
@@ -77,38 +79,23 @@ async def load_agent_on_start(
     return app.agent
 
 
-# if os.path.exists("./models/20220107-221716-spatial-solenoid.tar.gz"):
-#     # model_path="./models/bot-v1.tar.gz"
-#     bot_agent = load_agent_on_start(
-#         model_path="./models/20220107-221716-spatial-solenoid.tar.gz",
-#         endpoints=_endpoints,
-#         remote_storage=None,
-#         app=bot_app,
-#         loop=asyncio.get_event_loop()
-#     )
+if os.path.exists("./models/20220217-182725-warm-quarter.tar.gz"):
+    # model_path="./models/bot-v1.tar.gz"
+    bot_agent = load_agent_on_start(
+        model_path="./models/20220217-182725-warm-quarter.tar.gz",
+        endpoints=_endpoints,
+        remote_storage=None,
+        app=bot_app,
+        loop=asyncio.get_event_loop()
+    )
 
 
 async def handle_text_with_agent(agent, user_chat, sender_id):
     return await agent.handle_text(user_chat, sender_id=sender_id)
 
 
-# @bot_app.get("/health")
-# async def health(_) -> HTTPResponse:
-#     """Ping endpoint to check if the server is running and well."""
-#     body = {"status": "ok"}
-#     return response.json(body, status=200)
-#
-#
-# @bot_app.route("/protected")
-# @protected()
-# async def protected_api(request):
-#     print(request.json)
-#     print(request.token)
-#     return jsonify({"protected": True})
-
-
 class Health(Resource):
-    async def get(self, request):
+    async def get(self):
         body = {"status": "ok"}
         return response.json(body, status=200)
 

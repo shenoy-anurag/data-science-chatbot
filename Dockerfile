@@ -1,25 +1,28 @@
-FROM  python:3.7
+FROM amd64/ubuntu:latest
 ENV PYTHONUNBUFFERED 1
+
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && apt-get install -y python3.7 python3-pip
+RUN python3.7 -m pip install pip
+RUN apt-get update && apt-get install -y python3-distutils python3-setuptools
+RUN python3.7 -m pip install pip --upgrade pip
 
 RUN mkdir /bot
 WORKDIR /bot
 
-#RUN  export LC_ALL=C.UTF-8
-#RUN  export LANG=C.UTF-8
-
-#RUN apt-get update && apt-get -y install curl
+RUN export LC_ALL=C.UTF-8
+RUN export LANG=C.UTF-8
 
 RUN pip3 install --upgrade pip
 
+RUN pip3 install sanic==21.9.3
+RUN pip3 install sanic-cors==1.0.1
 RUN pip3 install tensorflow-cpu==2.6.1
-#RUN pip3 install nltk==3.2.5
-#RUN python3 -m nltk.downloader punkt
-#RUN python3 -m nltk.downloader stopwords
-#RUN python3 -m nltk.downloader perluniprops
 
 ADD . /bot/
-RUN pip3 install -r /bot/requirements.txt
+RUN chmod +x /bot/bot_entrypoint.sh
+RUN pip3 install -r /bot/docker-requirements-x86_64.txt
 
-EXPOSE 5000
-
-#ENTRYPOINT ["python3", "/bot/app/server.py"]
+EXPOSE 8000

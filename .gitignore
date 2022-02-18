@@ -142,5 +142,6 @@ dmypy.json
 
 /test.py
 convert_data.py
+app.py
 
 env_var.sh

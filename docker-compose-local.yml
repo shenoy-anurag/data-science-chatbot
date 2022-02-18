@@ -1,14 +1,14 @@
 version: '3'
 services:
-  mongo:
-    restart: always
-    image: mongo:latest
-    volumes:
-      - /var/lib/mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - cb_backend
+#  mongo:
+#    restart: always
+#    image: mongo:latest
+#    volumes:
+#      - /var/lib/mongo
+#    ports:
+#      - "27017:27017"
+#    networks:
+#      - cb_backend
 
   app:
     build:
@@ -19,10 +19,26 @@ services:
       - ./env_var.sh
     volumes:
       - ./app:/app
+      - ./models:/models
     networks:
       - cb_backend
     ports:
-      - "5000:5000"
+      - "8000:8000"
+
+#  actions:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    entrypoint: ./bot_entrypoint.sh
+#    env_file:
+#      - ./env_var.sh
+#    volumes:
+#      - ./actions:/actions
+#    networks:
+#      - cb_backend
+#    ports:
+#      - "5005:5005"
+
 
 networks:
   cb_backend:

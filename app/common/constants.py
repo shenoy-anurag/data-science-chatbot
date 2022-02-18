@@ -9,8 +9,8 @@ API_STATUS_FAILURE = 'Failure'
 API_STATUS_WARNING = 'Warning'
 API_STATUS_ERROR = 'Error'
 
-URL_FORMAT = 'http://{host}:{port}/'
-URL_FORMAT_SECURE = 'https://{host}:{port}/'
+URL_FORMAT = 'http://{host}{port}/'
+URL_FORMAT_SECURE = 'https://{host}{port}/'
 
 ENV_PRODUCTION = 'production'
 ENV_STAGING = 'staging'
