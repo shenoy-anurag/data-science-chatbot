@@ -104,7 +104,7 @@ async def handle_text_with_agent(agent, user_chat, sender_id):
 
 
 class Health(Resource):
-    async def get(self):
+    async def get(self, request):
         body = {"status": "ok"}
         return response.json(body, status=200)
 
@@ -122,10 +122,10 @@ class LoadAgent(Resource):
     async def post(self, request):
         global BOT_AGENT
         try:
-            if os.path.exists("./models/20220217-182725-warm-quarter.tar.gz"):
+            if os.path.exists("models/20220218-001219-bare-congruence.tar.gz"):
                 # model_path="./models/bot-v1.tar.gz"
                 await load_agent_on_start(
-                    model_path="./models/20220217-182725-warm-quarter.tar.gz",
+                    model_path="models/20220218-001219-bare-congruence.tar.gz",
                     endpoints=_endpoints,
                     remote_storage=None,
                     app=bot_app,
@@ -165,6 +165,7 @@ class Chat(Resource):
         try:
             user_text = request.json.get('chat')
             sender_id = request.json.get('id')
+            logger.debug(BOT_AGENT.domain.action_names_or_texts)
             return await BOT_AGENT.handle_text(user_text, sender_id=sender_id)
         except Exception as e:
             logger.error(e)

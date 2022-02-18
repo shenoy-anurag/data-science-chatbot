@@ -9,6 +9,7 @@ from sanic_jwt import Initialize
 
 from app.utils import authenticate
 
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 bot_app = Sanic(__name__)
