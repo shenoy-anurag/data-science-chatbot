@@ -26,6 +26,8 @@ logger = logging.getLogger(__name__)
 app_blueprint = Blueprint('app_blueprint')
 api = Api(app_blueprint)
 
+loop = asyncio.get_event_loop()
+
 _endpoints = AvailableEndpoints.read_endpoints(ENDPOINTS_FILE)
 
 try:
@@ -57,6 +59,8 @@ _action_endpoint = _endpoints.action
 
 logger.debug(_endpoints.__dict__)
 
+BOT_AGENT = agent.Agent()
+
 
 async def load_agent_on_start(
         model_path: Text,
@@ -69,24 +73,28 @@ async def load_agent_on_start(
     Used to be scheduled on server start
     (hence the `app` and `loop` arguments).
     """
-    app.agent = await agent.load_agent(
+    global BOT_AGENT
+    bot_agent = await agent.load_agent(
         model_path=model_path,
         remote_storage=remote_storage,
         endpoints=endpoints,
         loop=loop,
     )
+    BOT_AGENT = bot_agent
     logger.info("Rasa server is up and running.")
-    return app.agent
+    return BOT_AGENT
 
 
 if os.path.exists("./models/20220217-182725-warm-quarter.tar.gz"):
     # model_path="./models/bot-v1.tar.gz"
-    bot_agent = load_agent_on_start(
-        model_path="./models/20220217-182725-warm-quarter.tar.gz",
-        endpoints=_endpoints,
-        remote_storage=None,
-        app=bot_app,
-        loop=asyncio.get_event_loop()
+    bot_agent = loop.run_until_complete(
+        load_agent_on_start(
+            model_path="./models/20220217-182725-warm-quarter.tar.gz",
+            endpoints=_endpoints,
+            remote_storage=None,
+            app=bot_app,
+            loop=asyncio.get_event_loop()
+        )
     )
 
 
@@ -129,7 +137,7 @@ class Chat(Resource):
     async def post(self, request):
         user_text = request.json.get('chat')
         sender_id = request.json.get('id')
-        return await bot_app.agent.handle_text(user_text, sender_id=sender_id)
+        return await BOT_AGENT.handle_text(user_text, sender_id=sender_id)
 
 
 api.add_resource(Health, '/')
