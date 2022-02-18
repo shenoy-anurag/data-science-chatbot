@@ -121,18 +121,16 @@ class LoadAgent(Resource):
     @protected()
     async def post(self, request):
         global BOT_AGENT
-        bot_agent = agent.Agent()
         try:
             if os.path.exists("./models/20220217-182725-warm-quarter.tar.gz"):
                 # model_path="./models/bot-v1.tar.gz"
-                bot_agent = await load_agent_on_start(
+                await load_agent_on_start(
                     model_path="./models/20220217-182725-warm-quarter.tar.gz",
                     endpoints=_endpoints,
                     remote_storage=None,
                     app=bot_app,
                     loop=asyncio.get_event_loop()
                 )
-            BOT_AGENT = bot_agent
             return jsonify({'status': 200, 'message': 'success', 'data': "loading"})
         except Exception as e:
             logger.error(e)
