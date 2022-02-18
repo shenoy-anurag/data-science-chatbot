@@ -2,5 +2,7 @@
 .git
 .cache
 
+env_var.sh
+
 venv/
 venv_arm/

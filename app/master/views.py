@@ -55,7 +55,7 @@ _endpoints.action = EndpointConfig.from_dict(action_endpoint_config)
 
 _action_endpoint = _endpoints.action
 
-bot_app.logger.debug(_endpoints.__dict__)
+logger.debug(_endpoints.__dict__)
 
 
 async def load_agent_on_start(
