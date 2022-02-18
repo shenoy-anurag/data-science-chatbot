@@ -67,7 +67,6 @@ async def load_agent_on_start(
         model_path: Text,
         endpoints: AvailableEndpoints,
         remote_storage: Optional[Text],
-        app: Sanic,
         loop: AbstractEventLoop,
 ) -> Agent:
     """Load an agent.
@@ -86,14 +85,13 @@ async def load_agent_on_start(
     return BOT_AGENT
 
 
-if os.path.exists("./models/20220217-182725-warm-quarter.tar.gz"):
+if os.path.exists("models/20220218-001219-bare-congruence.tar.gz"):
     # model_path="./models/bot-v1.tar.gz"
-    bot_agent = loop.run_until_complete(
+    loop.run_until_complete(
         load_agent_on_start(
-            model_path="./models/20220217-182725-warm-quarter.tar.gz",
+            model_path="models/20220218-001219-bare-congruence.tar.gz",
             endpoints=_endpoints,
             remote_storage=None,
-            app=bot_app,
             loop=asyncio.get_event_loop()
         )
     )
@@ -128,7 +126,6 @@ class LoadAgent(Resource):
                     model_path="models/20220218-001219-bare-congruence.tar.gz",
                     endpoints=_endpoints,
                     remote_storage=None,
-                    app=bot_app,
                     loop=asyncio.get_event_loop()
                 )
             return jsonify({'status': 200, 'message': 'success', 'data': "loading"})
@@ -176,5 +173,5 @@ class Chat(Resource):
 api.add_resource(Health, '/')
 api.add_resource(Protected, '/protected', endpoint='protected')
 api.add_resource(Chat, '/chat', endpoint='chat')
-api.add_resource(TrainBot, '/train', endpoint='train')
+# api.add_resource(TrainBot, '/train', endpoint='train')
 api.add_resource(LoadAgent, '/load-model', endpoint='load-model')
