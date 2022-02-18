@@ -2,6 +2,7 @@ import asyncio
 import copy
 import logging
 import os
+import traceback
 from asyncio import AbstractEventLoop
 from typing import Text, Optional
 
@@ -134,7 +135,9 @@ class LoadAgent(Resource):
             BOT_AGENT = bot_agent
             return jsonify({'status': 200, 'message': 'success', 'data': "loading"})
         except Exception as e:
-            return jsonify({'status': 500, 'message': 'error', 'error': str(e)})
+            logger.error(e)
+            logger.error(traceback.format_exc())
+            return jsonify({'status': 500, 'message': 'error', 'error': str(e)}, status=500)
 
 
 class TrainBot(Resource):
@@ -153,7 +156,9 @@ class TrainBot(Resource):
             )
             return jsonify({'status': 200, 'message': 'success', 'data': "training"})
         except Exception as e:
-            return jsonify({'status': 500, 'message': 'error', 'error': str(e)})
+            logger.error(e)
+            logger.error(traceback.format_exc())
+            return jsonify({'status': 500, 'message': 'error', 'error': str(e)}, status=500)
 
 
 class Chat(Resource):
@@ -164,7 +169,9 @@ class Chat(Resource):
             sender_id = request.json.get('id')
             return await BOT_AGENT.handle_text(user_text, sender_id=sender_id)
         except Exception as e:
-            return jsonify({'status': 500, 'message': 'error', 'error': str(e)})
+            logger.error(e)
+            logger.error(traceback.format_exc())
+            return jsonify({'status': 500, 'message': 'error', 'error': str(e)}, status=500)
 
 
 api.add_resource(Health, '/')
