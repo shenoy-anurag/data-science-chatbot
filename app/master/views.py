@@ -13,7 +13,7 @@ from sanic_restful_api import Api, Resource
 
 from app import bot_app
 from app.common.constants import (
-    URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, ENV_DEVELOPMENT, DOMAIN_FILE, CONFIG_FILE,
+    URL_FORMAT, URL_FORMAT_SECURE, ENV_PRODUCTION, ENV_HEROKU, ENV_DEVELOPMENT, DOMAIN_FILE, CONFIG_FILE,
     ENDPOINTS_FILE, NLU_MAIN_FILE, NLU_RULES_FILE, NLU_STORIES_FILE
 )
 from app.utils import remove_null_values_from_dict
@@ -48,7 +48,7 @@ except:
     pass
 
 url_format = copy.deepcopy(
-    URL_FORMAT_SECURE if os.environ.get('ENVIRONMENT', ENV_DEVELOPMENT) == ENV_PRODUCTION else URL_FORMAT)
+    URL_FORMAT_SECURE if os.environ.get('ENVIRONMENT', ENV_DEVELOPMENT) in [ENV_PRODUCTION, ENV_HEROKU] else URL_FORMAT)
 action_endpoint_config = {
     'url': url_format.format(
         host=os.environ.get('ACTIONS_HOST', "localhost"),
@@ -85,7 +85,7 @@ async def load_agent_on_start(
     return BOT_AGENT
 
 
-if os.path.exists("models/20220218-001219-bare-congruence.tar.gz"):
+if os.path.exists("models/20220218-001219-bare-congruence.tar.gz") and os.environ.get('ENVIRONMENT') != ENV_HEROKU:
     # model_path="./models/bot-v1.tar.gz"
     loop.run_until_complete(
         load_agent_on_start(
@@ -142,11 +142,10 @@ class TrainBot(Resource):
         try:
             training_result = train(domain=DOMAIN_FILE, config=CONFIG_FILE, training_files=nlu_files)
             output_path = training_result.model
-            bot_agent = load_agent_on_start(
+            await load_agent_on_start(
                 model_path=output_path,
                 endpoints=_endpoints,
                 remote_storage=None,
-                app=bot_app,
                 loop=asyncio.get_event_loop()
             )
             return jsonify({'status': 200, 'message': 'success', 'data': "training"})

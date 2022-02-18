@@ -13,6 +13,7 @@ URL_FORMAT = 'http://{host}{port}/'
 URL_FORMAT_SECURE = 'https://{host}{port}/'
 
 ENV_PRODUCTION = 'production'
+ENV_HEROKU = 'heroku'
 ENV_STAGING = 'staging'
 ENV_DEVELOPMENT = 'development'
 
