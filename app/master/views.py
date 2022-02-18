@@ -126,7 +126,7 @@ class LoadAgent(Resource):
                     model_path="models/20220218-001219-bare-congruence.tar.gz",
                     endpoints=_endpoints,
                     remote_storage=None,
-                    loop=asyncio.get_event_loop()
+                    loop=loop
                 )
             return jsonify({'status': 200, 'message': 'success', 'data': "loading"})
         except Exception as e:
@@ -146,7 +146,7 @@ class TrainBot(Resource):
                 model_path=output_path,
                 endpoints=_endpoints,
                 remote_storage=None,
-                loop=asyncio.get_event_loop()
+                loop=loop
             )
             return jsonify({'status': 200, 'message': 'success', 'data': "training"})
         except Exception as e:
@@ -156,13 +156,12 @@ class TrainBot(Resource):
 
 
 class Chat(Resource):
-    @protected()
     async def post(self, request):
         try:
-            user_text = request.json.get('chat')
-            sender_id = request.json.get('id')
+            message = request.json.get('message')
+            sender_id = request.json.get('sender')
             logger.debug(BOT_AGENT.domain.action_names_or_texts)
-            return await BOT_AGENT.handle_text(user_text, sender_id=sender_id)
+            return await BOT_AGENT.handle_text(message, sender_id=sender_id)
         except Exception as e:
             logger.error(e)
             logger.error(traceback.format_exc())
